@@ -1,0 +1,37 @@
+apply plugin: 'org.jetbrains.kotlin.android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'dagger.hilt.android.plugin'
+
+android {
+    compileSdk AndroidConfig.compileSdk
+
+    defaultConfig {
+        minSdk AndroidConfig.minSdk
+        targetSdk AndroidConfig.targetSdk
+
+        testInstrumentationRunner TestConfig.testInstrumentationRunner
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
+}
+
+dependencies {
+    implementation Dependencies.timber
+
+    implementation Dependencies.hilt
+    kapt Dependencies.hiltCompiler
+}
+

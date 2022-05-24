@@ -1,4 +1,4 @@
-package com.linh.androiddeveloperchallenge
+package com.linh.androiddeveloperchallenge.navigation
 
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
@@ -17,6 +17,6 @@ class ExampleInstrumentedTest {
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("com.linh.androiddeveloperchallenge", appContext.packageName)
+        assertEquals("com.linh.androiddeveloperchallenge.navigation.test", appContext.packageName)
     }
 }

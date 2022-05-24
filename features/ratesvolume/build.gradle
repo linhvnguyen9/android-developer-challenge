@@ -1,0 +1,17 @@
+apply from: '../../feature_dependencies.gradle'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'org.jetbrains.kotlin.android'
+
+android {
+    buildFeatures {
+        dataBinding = true
+    }
+}
+
+kapt {
+    correctErrorTypes = true
+}
+
+dependencies {
+
+}

@@ -14,3 +14,6 @@ dependencyResolutionManagement {
 }
 rootProject.name = "Android Developer Challenge"
 include ':app'
+include ':common'
+include ':features:ratesvolume'
+include ':navigation'

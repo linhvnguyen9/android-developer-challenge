@@ -1,0 +1,17 @@
+apply plugin: 'com.android.library'
+apply from: '../../android_commons.gradle'
+
+dependencies {
+    implementation Dependencies.coreKtx
+    implementation Dependencies.appCompat
+    implementation Dependencies.material
+    implementation Dependencies.constraintLayout
+    implementation Dependencies.navigationFragment
+    implementation Dependencies.navigationUi
+
+    testImplementation TestDependencies.junit
+    androidTestImplementation TestDependencies.junit
+    androidTestImplementation TestDependencies.junitExt
+
+    implementation project(Modules.common)
+}

@@ -1,4 +1,4 @@
-package com.linh.androiddeveloperchallenge
+package com.linh.androiddeveloperchallenge.navigation
 
 import org.junit.Assert.*
 import org.junit.Test

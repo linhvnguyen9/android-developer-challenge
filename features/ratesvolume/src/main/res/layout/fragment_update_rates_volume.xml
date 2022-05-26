@@ -3,20 +3,25 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="viewModel"
-            type="com.linh.androiddeveloperchallenge.ratesvolume.presentation.UpdateRatesVolumeViewModel" />
+            type="com.linh.androiddeveloperchallenge.ratesvolume.presentation.update.UpdateRatesVolumeViewModel" />
+
     </data>
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".presentation.UpdateRatesVolumeFragment">
+        tools:context=".presentation.update.UpdateRatesVolumeFragment">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@string/hello_blank_fragment" />
+            <com.airbnb.epoxy.EpoxyRecyclerView
+                android:id="@+id/epoxy_recycler_view_update_rates_volume"
+                android:layout_width="match_parent"
+                android:paddingHorizontal="8dp"
+                android:paddingTop="16dp"
+                android:layout_height="match_parent"
+                android:clipToPadding="true"/>
 
     </FrameLayout>
 

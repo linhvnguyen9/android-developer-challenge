@@ -13,5 +13,7 @@ kapt {
 }
 
 dependencies {
-
+    implementation Dependencies.epoxy
+    kapt Dependencies.epoxyAnnotation
+    implementation Dependencies.epoxyDatabinding
 }

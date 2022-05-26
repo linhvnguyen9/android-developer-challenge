@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="size_staff_info_avatar">48dp</dimen>
+    <dimen name="size_item_row_selector">48dp</dimen>
+    <dimen name="size_item_row_selector_indicator">4dp</dimen>
+    <dimen name="padding_assignment_row">8dp</dimen>
+    <dimen name="margin_start_item_job">16dp</dimen>
+    <dimen name="margin_end_item_job">12dp</dimen>
+    <dimen name="margin_start_item_assignment_orchard_info">8dp</dimen>
+    <dimen name="margin_top_item_assignment_row_indicator">4dp</dimen>
+    <dimen name="margin_end_item_assignment_row_indicator">4dp</dimen>
+    <dimen name="radius_item_job">6dp</dimen>
+    <dimen name="margin_top_assignment_orchard_label">4dp</dimen>
+    <dimen name="height_item_assignment_rate_button">48dp</dimen>
+    <dimen name="margin_top_item_assignment_staff_info">20dp</dimen>
+    <dimen name="margin_end_item_assignment_rate_text_input">12dp</dimen>
+    <dimen name="margin_top_item_assignment_rate_text_input">20dp</dimen>
+    <dimen name="margin_top_item_assignment_rate_button">8dp</dimen>
+    <dimen name="margin_top_item_assignment_rate_type_label">16dp</dimen>
+    <dimen name="margin_top_item_assignment_row_info">8dp</dimen>
+</resources>

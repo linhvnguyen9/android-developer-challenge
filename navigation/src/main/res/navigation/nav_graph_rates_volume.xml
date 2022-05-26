@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/fragment_rates_volume"
-        android:name="com.linh.androiddeveloperchallenge.ratesvolume.presentation.UpdateRatesVolumeFragment"
+        android:name="com.linh.androiddeveloperchallenge.ratesvolume.presentation.update.UpdateRatesVolumeFragment"
         android:label="@string/update_rates_and_volume_screen_title"/>
 
 </navigation>

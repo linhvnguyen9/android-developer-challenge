@@ -25,6 +25,7 @@ object Dependencies {
     const val navigationUi = "androidx.navigation:navigation-ui-ktx:${Versions.navigation}"
     const val epoxy = "com.airbnb.android:epoxy:${Versions.epoxy}"
     const val epoxyAnnotation = "com.airbnb.android:epoxy-processor:${Versions.epoxy}"
+    const val epoxyDatabinding = "com.airbnb.android:epoxy-databinding:${Versions.epoxy}"
 
     // Debugging dependencies
     const val timber = "com.jakewharton.timber:timber:${Versions.timber}"

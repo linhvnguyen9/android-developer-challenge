@@ -1,6 +1,5 @@
 package com.linh.androiddeveloperchallenge.ratesvolume.presentation.model
 
-import androidx.annotation.ColorRes
 import androidx.annotation.DrawableRes
 import com.linh.androiddeveloperchallenge.ratesvolume.R
 import com.linh.androiddeveloperchallenge.ratesvolume.domain.entity.RateType
@@ -34,15 +33,17 @@ class TimesheetUi(
                     val num: String,
                     val state: RowSelectorState
                 ) {
-                    val backgroundRes get() = when(state) {
-                        RowSelectorState.UNSELECTED -> R.drawable.background_row_unselected
-                        RowSelectorState.SELECTED, RowSelectorState.SELECTED_WORKED -> R.drawable.background_row_selected
-                    }
+                    val backgroundRes
+                        get() = when (state) {
+                            RowSelectorState.UNSELECTED -> R.drawable.background_row_unselected
+                            RowSelectorState.SELECTED, RowSelectorState.SELECTED_WORKED -> R.drawable.background_row_selected
+                        }
 
-                    val textColorRes get() = when(state) {
-                        RowSelectorState.UNSELECTED -> android.R.color.black
-                        RowSelectorState.SELECTED, RowSelectorState.SELECTED_WORKED -> android.R.color.white
-                    }
+                    val textColorRes
+                        get() = when (state) {
+                            RowSelectorState.UNSELECTED -> android.R.color.black
+                            RowSelectorState.SELECTED, RowSelectorState.SELECTED_WORKED -> android.R.color.white
+                        }
 
                     val shouldShowIndicator get() = state == RowSelectorState.SELECTED_WORKED
                 }
@@ -65,7 +66,7 @@ class TimesheetUi(
 }
 
 sealed class TimesheetUiState {
-    object Loading: TimesheetUiState()
-    object Error: TimesheetUiState()
-    data class Success(val successUi: TimesheetUi.SuccessUi): TimesheetUiState()
+    object Loading : TimesheetUiState()
+    object Error : TimesheetUiState()
+    data class Success(val successUi: TimesheetUi.SuccessUi) : TimesheetUiState()
 }

@@ -15,38 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <FrameLayout
-            android:id="@+id/frame_layout_staff_info_avatar"
-            android:layout_width="@dimen/size_staff_info_avatar"
-            android:layout_height="@dimen/size_staff_info_avatar"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:background="@drawable/background_avatar">
 
-            <TextView
-                android:id="@+id/frame_layout_staff_info_avatar_initials"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                tools:text="B"
-                android:text="@{staffUi.initials}"
-                android:textAppearance="?textAppearanceHeadline6"
-                android:layout_gravity="center"
-                android:textColor="@android:color/white" />
-
-        </FrameLayout>
-
-        <TextView
-            android:id="@+id/text_staff_info_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/frame_layout_staff_info_avatar"
-            app:layout_constraintStart_toEndOf="@+id/frame_layout_staff_info_avatar"
-            app:layout_constraintTop_toTopOf="parent"
-            android:textAppearance="?textAppearanceBody1"
-            android:text="@{staffUi.fullName}"
-            android:layout_marginStart="12dp"
-            tools:text="Barco" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

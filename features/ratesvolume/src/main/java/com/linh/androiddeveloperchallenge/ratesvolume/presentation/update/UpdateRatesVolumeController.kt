@@ -6,7 +6,7 @@ import com.linh.androiddeveloperchallenge.ratesvolume.presentation.model.Timeshe
 import com.linh.androiddeveloperchallenge.ratesvolume.presentation.model.TimesheetUiState
 import javax.inject.Inject
 
-class UpdateRatesVolumeController @Inject constructor(): TypedEpoxyController<TimesheetUi>() {
+class UpdateRatesVolumeController @Inject constructor() : TypedEpoxyController<TimesheetUi>() {
     private lateinit var listener: UpdateRatesVolumeListener
 
     fun setupListener(listener: UpdateRatesVolumeListener) {
@@ -36,50 +36,49 @@ class UpdateRatesVolumeController @Inject constructor(): TypedEpoxyController<Ti
                     jobName(job.title)
                 }
 
-//                val assignmentsItems = job.assignments.mapIndexed { index, assignmentUi ->
-//                    AssignmentBindingModel_()
-//                        .id("$index-assignment")
-//                        .assignmentUi(assignmentUi)
-//                }
+                val assignmentsItems = job.assignments.mapIndexed { index, assignmentUi ->
+                    val assignmentDetailModel = AssignmentDetailBindingModel_()
+                        .id("$index-assignmentDetail")
+                        .assignmentUi(assignmentUi)
 
-//                verticalCarousel {
-//                    id("$index-assignment-carousel")
-//
-//                    models(assignmentsItems)
-//                    paddingRes(R.dimen.padding_assignment_row)
-//                }
+                    val rowSelectCarouselItems =
+                        assignmentUi.rowSelectorUi.mapIndexed { index, rowSelectorUi ->
+                            AssignmentRowBindingModel_()
+                                .id("$index-assignmentRow")
+                                .rowSelectorUi(rowSelectorUi)
+                        }
 
-                job.assignments.forEachIndexed { index, assignmentUi ->
-                    assignment {
-                        id("$index-assignment")
-                        assignmentUi(assignmentUi)
-                    }
+                    val rowAssignCarouselItems =
+                        assignmentUi.rowAssignmentUi.mapIndexed { index, rowAssignmentUi ->
+                            AssignmentRowInfoBindingModel_()
+                                .id("$index-assignmentRowInfo")
+                                .assignmentRow(rowAssignmentUi)
+                        }
 
-                    val rowSelectCarouselItems = assignmentUi.rowSelectorUi.mapIndexed { index, rowSelectorUi ->
-                        AssignmentRowBindingModel_()
-                            .id("$index-assignmentRow")
-                            .rowSelectorUi(rowSelectorUi)
-                    }
+                    val rowSelectCarouselModel = CarouselModel_()
+                        .id("$index-row-select-carousel")
+                        .models(rowSelectCarouselItems)
+                        .paddingRes(R.dimen.padding_assignment_row)
 
-                    val rowAssignCarouselItems = assignmentUi.rowAssignmentUi.mapIndexed { index, rowAssignmentUi ->
-                        AssignmentRowInfoBindingModel_()
-                            .id("$index-assignmentRowInfo")
-                            .assignmentRow(rowAssignmentUi)
-                    }
+                    val rowAssignCarouselModel = VerticalCarouselModel_()
+                        .id("$index-row-assign-carousel")
+                        .models(rowAssignCarouselItems)
+                        .paddingRes(R.dimen.padding_assignment_row)
 
-                    carousel {
-                        id("$index-row-select-carousel")
+                    EpoxyModelGroup(
+                        R.layout.item_assignment,
+                        listOf(
+                            assignmentDetailModel,
+                            rowSelectCarouselModel,
+                            rowAssignCarouselModel
+                        )
+                    )
+                }
 
-                        models(rowSelectCarouselItems)
-                        paddingRes(R.dimen.padding_assignment_row)
-                    }
-
-                    verticalCarousel {
-                        id("$index-row-assign-carousel")
-
-                        models(rowAssignCarouselItems)
-                        paddingRes(R.dimen.padding_assignment_row)
-                    }
+                verticalCarousel {
+                    id("$index-assignment")
+                    models(assignmentsItems)
+                    paddingRes(R.dimen.padding_assignment_row)
                 }
             }
         }

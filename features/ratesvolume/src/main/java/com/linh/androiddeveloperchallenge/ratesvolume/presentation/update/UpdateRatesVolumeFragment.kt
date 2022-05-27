@@ -91,11 +91,254 @@ class UpdateRatesVolumeFragment :
                                             )
                                         ),
                                         rowAssignmentUi = listOf(
-                                            TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowAssignmentUi(getString(R.string.item_assignment_row, 3), 435, 123, getString(R.string.item_assignment_row_previous_worker, "Test", 123)),
-                                            TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowAssignmentUi(getString(R.string.item_assignment_row, 3), 435, 123, getString(R.string.item_assignment_row_previous_worker, "Test", 123)),
-                                            TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowAssignmentUi(getString(R.string.item_assignment_row, 3), 435, 123, getString(R.string.item_assignment_row_previous_worker, "Test", 123)),
-                                            TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowAssignmentUi(getString(R.string.item_assignment_row, 3), 435, 123, getString(R.string.item_assignment_row_previous_worker, "Test", 123)),
-                                            TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowAssignmentUi(getString(R.string.item_assignment_row, 3), 435, 123, getString(R.string.item_assignment_row_previous_worker, "Test", 123))
+                                            TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowAssignmentUi(
+                                                getString(R.string.item_assignment_row, 3),
+                                                435,
+                                                123,
+                                                getString(
+                                                    R.string.item_assignment_row_previous_worker,
+                                                    "Test",
+                                                    123
+                                                )
+                                            ),
+                                            TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowAssignmentUi(
+                                                getString(R.string.item_assignment_row, 3),
+                                                435,
+                                                123,
+                                                getString(
+                                                    R.string.item_assignment_row_previous_worker,
+                                                    "Test",
+                                                    123
+                                                )
+                                            ),
+                                            TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowAssignmentUi(
+                                                getString(R.string.item_assignment_row, 3),
+                                                435,
+                                                123,
+                                                getString(
+                                                    R.string.item_assignment_row_previous_worker,
+                                                    "Test",
+                                                    123
+                                                )
+                                            ),
+                                            TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowAssignmentUi(
+                                                getString(R.string.item_assignment_row, 3),
+                                                435,
+                                                123,
+                                                getString(
+                                                    R.string.item_assignment_row_previous_worker,
+                                                    "Test",
+                                                    123
+                                                )
+                                            ),
+                                            TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowAssignmentUi(
+                                                getString(R.string.item_assignment_row, 3),
+                                                435,
+                                                123,
+                                                getString(
+                                                    R.string.item_assignment_row_previous_worker,
+                                                    "Test",
+                                                    123
+                                                )
+                                            )
+                                        )
+                                    ),
+                                    TimesheetUi.SuccessUi.JobUi.AssignmentUi(
+                                        staffUi = TimesheetUi.SuccessUi.JobUi.AssignmentUi.StaffUi(
+                                            "Linh Nguyen",
+                                            R.drawable.background_avatar
+                                        ),
+                                        orchardName = "Benji (123123234)",
+                                        blockName = "23SERSD",
+                                        selectedRateType = RateType.PieceRate(234234.34),
+                                        rowSelectorUi = listOf(
+                                            TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowSelectorUi(
+                                                "3",
+                                                TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowSelectorState.SELECTED
+                                            ),
+                                            TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowSelectorUi(
+                                                "3",
+                                                TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowSelectorState.SELECTED_WORKED
+                                            ),
+                                            TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowSelectorUi(
+                                                "3",
+                                                TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowSelectorState.SELECTED_WORKED
+                                            ),
+                                            TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowSelectorUi(
+                                                "3",
+                                                TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowSelectorState.SELECTED_WORKED
+                                            ),
+                                            TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowSelectorUi(
+                                                "3",
+                                                TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowSelectorState.SELECTED_WORKED
+                                            ),
+                                            TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowSelectorUi(
+                                                "3",
+                                                TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowSelectorState.SELECTED_WORKED
+                                            ),
+                                            TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowSelectorUi(
+                                                "3",
+                                                TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowSelectorState.SELECTED_WORKED
+                                            ),
+                                            TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowSelectorUi(
+                                                "3",
+                                                TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowSelectorState.SELECTED_WORKED
+                                            ),
+                                            TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowSelectorUi(
+                                                "3",
+                                                TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowSelectorState.UNSELECTED
+                                            )
+                                        ),
+                                        rowAssignmentUi = listOf(
+                                            TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowAssignmentUi(
+                                                getString(R.string.item_assignment_row, 3),
+                                                435,
+                                                123,
+                                                getString(
+                                                    R.string.item_assignment_row_previous_worker,
+                                                    "Test",
+                                                    123
+                                                )
+                                            ),
+                                            TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowAssignmentUi(
+                                                getString(R.string.item_assignment_row, 3),
+                                                435,
+                                                123,
+                                                getString(
+                                                    R.string.item_assignment_row_previous_worker,
+                                                    "Test",
+                                                    123
+                                                )
+                                            ),
+                                            TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowAssignmentUi(
+                                                getString(R.string.item_assignment_row, 3),
+                                                435,
+                                                123,
+                                                getString(
+                                                    R.string.item_assignment_row_previous_worker,
+                                                    "Test",
+                                                    123
+                                                )
+                                            ),
+                                            TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowAssignmentUi(
+                                                getString(R.string.item_assignment_row, 3),
+                                                435,
+                                                123,
+                                                getString(
+                                                    R.string.item_assignment_row_previous_worker,
+                                                    "Test",
+                                                    123
+                                                )
+                                            ),
+                                            TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowAssignmentUi(
+                                                getString(R.string.item_assignment_row, 3),
+                                                435,
+                                                123,
+                                                getString(
+                                                    R.string.item_assignment_row_previous_worker,
+                                                    "Test",
+                                                    123
+                                                )
+                                            )
+                                        )
+                                    ),
+                                    TimesheetUi.SuccessUi.JobUi.AssignmentUi(
+                                        staffUi = TimesheetUi.SuccessUi.JobUi.AssignmentUi.StaffUi(
+                                            "Linh Nguyen",
+                                            R.drawable.background_avatar
+                                        ),
+                                        orchardName = "Benji (123123234)",
+                                        blockName = "23SERSD",
+                                        selectedRateType = RateType.PieceRate(234234.34),
+                                        rowSelectorUi = listOf(
+                                            TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowSelectorUi(
+                                                "3",
+                                                TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowSelectorState.SELECTED
+                                            ),
+                                            TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowSelectorUi(
+                                                "3",
+                                                TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowSelectorState.SELECTED_WORKED
+                                            ),
+                                            TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowSelectorUi(
+                                                "3",
+                                                TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowSelectorState.SELECTED_WORKED
+                                            ),
+                                            TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowSelectorUi(
+                                                "3",
+                                                TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowSelectorState.SELECTED_WORKED
+                                            ),
+                                            TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowSelectorUi(
+                                                "3",
+                                                TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowSelectorState.SELECTED_WORKED
+                                            ),
+                                            TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowSelectorUi(
+                                                "3",
+                                                TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowSelectorState.SELECTED_WORKED
+                                            ),
+                                            TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowSelectorUi(
+                                                "3",
+                                                TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowSelectorState.SELECTED_WORKED
+                                            ),
+                                            TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowSelectorUi(
+                                                "3",
+                                                TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowSelectorState.SELECTED_WORKED
+                                            ),
+                                            TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowSelectorUi(
+                                                "3",
+                                                TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowSelectorState.UNSELECTED
+                                            )
+                                        ),
+                                        rowAssignmentUi = listOf(
+                                            TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowAssignmentUi(
+                                                getString(R.string.item_assignment_row, 3),
+                                                435,
+                                                123,
+                                                getString(
+                                                    R.string.item_assignment_row_previous_worker,
+                                                    "Test",
+                                                    123
+                                                )
+                                            ),
+                                            TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowAssignmentUi(
+                                                getString(R.string.item_assignment_row, 3),
+                                                435,
+                                                123,
+                                                getString(
+                                                    R.string.item_assignment_row_previous_worker,
+                                                    "Test",
+                                                    123
+                                                )
+                                            ),
+                                            TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowAssignmentUi(
+                                                getString(R.string.item_assignment_row, 3),
+                                                435,
+                                                123,
+                                                getString(
+                                                    R.string.item_assignment_row_previous_worker,
+                                                    "Test",
+                                                    123
+                                                )
+                                            ),
+                                            TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowAssignmentUi(
+                                                getString(R.string.item_assignment_row, 3),
+                                                435,
+                                                123,
+                                                getString(
+                                                    R.string.item_assignment_row_previous_worker,
+                                                    "Test",
+                                                    123
+                                                )
+                                            ),
+                                            TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowAssignmentUi(
+                                                getString(R.string.item_assignment_row, 3),
+                                                435,
+                                                123,
+                                                getString(
+                                                    R.string.item_assignment_row_previous_worker,
+                                                    "Test",
+                                                    123
+                                                )
+                                            )
                                         )
                                     )
                                 )
@@ -125,9 +368,7 @@ class UpdateRatesVolumeFragment :
                                                 TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowSelectorState.UNSELECTED
                                             )
                                         ),
-                                        rowAssignmentUi = listOf(
-
-                                        )
+                                        rowAssignmentUi = listOf()
                                     )
                                 )
                             )

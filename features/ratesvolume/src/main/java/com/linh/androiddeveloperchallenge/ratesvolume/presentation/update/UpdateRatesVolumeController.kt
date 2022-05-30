@@ -2,6 +2,7 @@ package com.linh.androiddeveloperchallenge.ratesvolume.presentation.update
 
 import com.airbnb.epoxy.*
 import com.linh.androiddeveloperchallenge.ratesvolume.*
+import com.linh.androiddeveloperchallenge.ratesvolume.domain.entity.RateType
 import com.linh.androiddeveloperchallenge.ratesvolume.presentation.model.TimesheetUi
 import com.linh.androiddeveloperchallenge.ratesvolume.presentation.model.TimesheetUiState
 import javax.inject.Inject
@@ -40,6 +41,9 @@ class UpdateRatesVolumeController @Inject constructor() : TypedEpoxyController<T
                     val assignmentDetailModel = AssignmentDetailBindingModel_()
                         .id("$index-assignmentDetail")
                         .assignmentUi(assignmentUi)
+                        .onClickPieceRate { _ -> this@UpdateRatesVolumeController.listener.onClickRateType(assignmentUi.id, rateType = RateType.PieceRate()) }
+                        .onClickWages { _ -> this@UpdateRatesVolumeController.listener.onClickRateType(assignmentUi.id, rateType = RateType.Wages) }
+                        .onRateChange { s, _, _, _ -> this@UpdateRatesVolumeController.listener.onRateChange(assignmentUi.id, s.toString()) }
 
                     val rowSelectCarouselItems =
                         assignmentUi.rowSelectorUi.mapIndexed { index, rowSelectorUi ->

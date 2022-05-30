@@ -1,3 +1,9 @@
 package com.linh.androiddeveloperchallenge.ratesvolume.presentation.update
 
-interface UpdateRatesVolumeListener
+import com.linh.androiddeveloperchallenge.ratesvolume.domain.entity.RateType
+import com.linh.androiddeveloperchallenge.ratesvolume.presentation.model.TimesheetUi
+
+interface UpdateRatesVolumeListener {
+    fun onClickRateType(assignmentId: Int, rateType: RateType)
+    fun onRateChange(assignmentId: Int, rate: String)
+}

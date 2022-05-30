@@ -4,7 +4,7 @@ import androidx.annotation.DrawableRes
 import com.linh.androiddeveloperchallenge.ratesvolume.R
 import com.linh.androiddeveloperchallenge.ratesvolume.domain.entity.RateType
 
-class TimesheetUi(
+data class TimesheetUi(
     val uiState: TimesheetUiState = TimesheetUiState.Loading
 ) {
     data class SuccessUi(
@@ -15,13 +15,18 @@ class TimesheetUi(
             val assignments: List<AssignmentUi>
         ) {
             data class AssignmentUi(
+                val id: Int,
                 val staffUi: StaffUi,
                 val orchardName: String,
                 val blockName: String,
                 val selectedRateType: RateType,
+                val pieceRate: String,
                 val rowSelectorUi: List<RowSelectorUi>,
                 val rowAssignmentUi: List<RowAssignmentUi>
             ) {
+                val isRateTypeWagesSelected get() = selectedRateType == RateType.Wages
+                val isRateTypePieceRateSelected get() = selectedRateType is RateType.PieceRate
+
                 data class StaffUi(
                     val fullName: String,
                     @DrawableRes val avatarBackgroundRes: Int

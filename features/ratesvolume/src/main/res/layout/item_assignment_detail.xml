@@ -8,6 +8,19 @@
         <variable
             name="assignmentUi"
             type="com.linh.androiddeveloperchallenge.ratesvolume.presentation.model.TimesheetUi.SuccessUi.JobUi.AssignmentUi" />
+
+        <variable
+            name="onClickPieceRate"
+            type="android.view.View.OnClickListener" />
+
+        <variable
+            name="onClickWages"
+            type="android.view.View.OnClickListener" />
+
+        <variable
+            name="onRateChange"
+            type="androidx.databinding.adapters.TextViewBindingAdapter.OnTextChanged" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -107,6 +120,8 @@
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:text="@string/assignment_detail_piece_rate"
+            android:onClick="@{onClickPieceRate}"
+            isActive="@{assignmentUi.isRateTypePieceRateSelected}"
             app:layout_constraintEnd_toStartOf="@+id/button_assignment_wages"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintHorizontal_chainStyle="spread"
@@ -120,6 +135,8 @@
             android:layout_marginStart="8dp"
             android:insetTop="0dp"
             android:insetBottom="0dp"
+            isActive="@{assignmentUi.isRateTypeWagesSelected}"
+            android:onClick="@{onClickWages}"
             android:text="@string/assignment_detail_wages"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -134,6 +151,7 @@
             android:layout_marginTop="@dimen/margin_top_assignment_orchard_label"
             android:layout_marginEnd="@dimen/margin_end_item_assignment_rate_text_input"
             android:hint="@string/item_assignment_rate"
+            isVisible="@{assignmentUi.isRateTypePieceRateSelected}"
             app:layout_constraintEnd_toStartOf="@+id/button_assignment_rate_apply_all"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/button_assignment_piece_rate"
@@ -144,6 +162,8 @@
                 android:id="@+id/text_input_edit_text_assignment_rate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="@{assignmentUi.pieceRate}"
+                android:onTextChanged="@{onRateChange}"
                 android:inputType="numberDecimal" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -154,6 +174,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/assignment_detail_apply_to_all"
+            isVisible="@{assignmentUi.isRateTypePieceRateSelected}"
             app:layout_constraintBottom_toBottomOf="@id/text_input_layout_assignment_rate"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/text_input_layout_assignment_rate" />
@@ -164,8 +185,9 @@
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="Canker Removal will be paid by wages in this timesheet."
+            isVisible="@{assignmentUi.isRateTypeWagesSelected}"
+            android:text="Canker Removal will be paid by wages in this timesheet."
+            app:layout_constraintTop_toBottomOf="@id/button_assignment_piece_rate"
             tools:visibility="gone" />
 
         <androidx.constraintlayout.widget.Barrier

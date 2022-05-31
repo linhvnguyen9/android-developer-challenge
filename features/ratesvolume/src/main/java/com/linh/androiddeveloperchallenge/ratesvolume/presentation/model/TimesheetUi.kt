@@ -35,9 +35,12 @@ data class TimesheetUi(
                 }
 
                 data class RowSelectorUi(
+                    val id: Int,
                     val num: String,
                     val state: RowSelectorState
                 ) {
+                    val isSelected get() = state == RowSelectorState.SELECTED || state == RowSelectorState.SELECTED_WORKED
+
                     val backgroundRes
                         get() = when (state) {
                             RowSelectorState.UNSELECTED -> R.drawable.background_row_unselected
@@ -60,6 +63,7 @@ data class TimesheetUi(
                 }
 
                 data class RowAssignmentUi(
+                    val rowId: Int,
                     val row: String,
                     val maxCount: Int,
                     val assignedCount: Int? = null,

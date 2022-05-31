@@ -7,6 +7,10 @@
         <variable
             name="rowSelectorUi"
             type="com.linh.androiddeveloperchallenge.ratesvolume.presentation.model.TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowSelectorUi" />
+        
+        <variable
+            name="onClick"
+            type="android.view.View.OnClickListener" />
 
     </data>
 
@@ -14,7 +18,10 @@
         android:layout_width="@dimen/size_item_row_selector"
         android:layout_height="@dimen/size_item_row_selector"
         backgroundRes="@{rowSelectorUi.backgroundRes}"
-        tools:background="@drawable/background_row_selected">
+        tools:background="@drawable/background_row_selected"
+        android:clickable="true"
+        android:focusable="true"
+        android:onClick="@{onClick}">
 
         <TextView
             android:layout_width="wrap_content"

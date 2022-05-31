@@ -15,7 +15,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class UpdateRatesVolumeViewModel @Inject constructor(
-    resourceProvider: ResourceProvider
+    private val resourceProvider: ResourceProvider
 ) : BaseViewModel() {
     private val _uiModel = MutableLiveData<TimesheetUi>()
     val uiModel: LiveData<TimesheetUi> get() = _uiModel
@@ -39,44 +39,29 @@ class UpdateRatesVolumeViewModel @Inject constructor(
                                 pieceRate = "",
                                 rowSelectorUi = listOf(
                                     TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowSelectorUi(
+                                        1,
                                         "3",
                                         TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowSelectorState.SELECTED
                                     ),
                                     TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowSelectorUi(
+                                        2,
                                         "3",
                                         TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowSelectorState.SELECTED_WORKED
                                     ),
                                     TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowSelectorUi(
+                                        3,
                                         "3",
                                         TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowSelectorState.SELECTED_WORKED
                                     ),
                                     TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowSelectorUi(
+                                        4,
                                         "3",
                                         TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowSelectorState.SELECTED_WORKED
-                                    ),
-                                    TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowSelectorUi(
-                                        "3",
-                                        TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowSelectorState.SELECTED_WORKED
-                                    ),
-                                    TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowSelectorUi(
-                                        "3",
-                                        TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowSelectorState.SELECTED_WORKED
-                                    ),
-                                    TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowSelectorUi(
-                                        "3",
-                                        TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowSelectorState.SELECTED_WORKED
-                                    ),
-                                    TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowSelectorUi(
-                                        "3",
-                                        TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowSelectorState.SELECTED_WORKED
-                                    ),
-                                    TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowSelectorUi(
-                                        "3",
-                                        TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowSelectorState.UNSELECTED
                                     )
                                 ),
                                 rowAssignmentUi = listOf(
                                     TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowAssignmentUi(
+                                        1,
                                         resourceProvider.getString(R.string.item_assignment_row, 3),
                                         435,
                                         123,
@@ -87,6 +72,7 @@ class UpdateRatesVolumeViewModel @Inject constructor(
                                         )
                                     ),
                                     TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowAssignmentUi(
+                                        2,
                                         resourceProvider.getString(R.string.item_assignment_row, 3),
                                         435,
                                         123,
@@ -97,6 +83,7 @@ class UpdateRatesVolumeViewModel @Inject constructor(
                                         )
                                     ),
                                     TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowAssignmentUi(
+                                        3,
                                         resourceProvider.getString(R.string.item_assignment_row, 3),
                                         435,
                                         123,
@@ -107,16 +94,7 @@ class UpdateRatesVolumeViewModel @Inject constructor(
                                         )
                                     ),
                                     TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowAssignmentUi(
-                                        resourceProvider.getString(R.string.item_assignment_row, 3),
-                                        435,
-                                        123,
-                                        resourceProvider.getString(
-                                            R.string.item_assignment_row_previous_worker,
-                                            "Test",
-                                            123
-                                        )
-                                    ),
-                                    TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowAssignmentUi(
+                                        4,
                                         resourceProvider.getString(R.string.item_assignment_row, 3),
                                         435,
                                         123,
@@ -140,44 +118,29 @@ class UpdateRatesVolumeViewModel @Inject constructor(
                                 pieceRate = "",
                                 rowSelectorUi = listOf(
                                     TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowSelectorUi(
+                                        1,
                                         "3",
                                         TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowSelectorState.SELECTED
                                     ),
                                     TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowSelectorUi(
+                                        2,
                                         "3",
                                         TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowSelectorState.SELECTED_WORKED
                                     ),
                                     TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowSelectorUi(
+                                        3,
                                         "3",
                                         TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowSelectorState.SELECTED_WORKED
                                     ),
                                     TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowSelectorUi(
+                                        4,
                                         "3",
                                         TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowSelectorState.SELECTED_WORKED
-                                    ),
-                                    TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowSelectorUi(
-                                        "3",
-                                        TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowSelectorState.SELECTED_WORKED
-                                    ),
-                                    TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowSelectorUi(
-                                        "3",
-                                        TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowSelectorState.SELECTED_WORKED
-                                    ),
-                                    TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowSelectorUi(
-                                        "3",
-                                        TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowSelectorState.SELECTED_WORKED
-                                    ),
-                                    TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowSelectorUi(
-                                        "3",
-                                        TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowSelectorState.SELECTED_WORKED
-                                    ),
-                                    TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowSelectorUi(
-                                        "3",
-                                        TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowSelectorState.UNSELECTED
                                     )
                                 ),
                                 rowAssignmentUi = listOf(
                                     TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowAssignmentUi(
+                                        1,
                                         resourceProvider.getString(R.string.item_assignment_row, 3),
                                         435,
                                         123,
@@ -188,6 +151,7 @@ class UpdateRatesVolumeViewModel @Inject constructor(
                                         )
                                     ),
                                     TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowAssignmentUi(
+                                        2,
                                         resourceProvider.getString(R.string.item_assignment_row, 3),
                                         435,
                                         123,
@@ -198,6 +162,7 @@ class UpdateRatesVolumeViewModel @Inject constructor(
                                         )
                                     ),
                                     TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowAssignmentUi(
+                                        3,
                                         resourceProvider.getString(R.string.item_assignment_row, 3),
                                         435,
                                         123,
@@ -208,16 +173,7 @@ class UpdateRatesVolumeViewModel @Inject constructor(
                                         )
                                     ),
                                     TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowAssignmentUi(
-                                        resourceProvider.getString(R.string.item_assignment_row, 3),
-                                        435,
-                                        123,
-                                        resourceProvider.getString(
-                                            R.string.item_assignment_row_previous_worker,
-                                            "Test",
-                                            123
-                                        )
-                                    ),
-                                    TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowAssignmentUi(
+                                        4,
                                         resourceProvider.getString(R.string.item_assignment_row, 3),
                                         435,
                                         123,
@@ -241,44 +197,39 @@ class UpdateRatesVolumeViewModel @Inject constructor(
                                 pieceRate = "234234.34",
                                 rowSelectorUi = listOf(
                                     TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowSelectorUi(
+                                        1,
                                         "3",
                                         TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowSelectorState.SELECTED
                                     ),
                                     TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowSelectorUi(
+                                        2,
                                         "3",
                                         TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowSelectorState.SELECTED_WORKED
                                     ),
                                     TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowSelectorUi(
+                                        3,
                                         "3",
                                         TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowSelectorState.SELECTED_WORKED
                                     ),
                                     TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowSelectorUi(
+                                        4,
                                         "3",
                                         TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowSelectorState.SELECTED_WORKED
                                     ),
                                     TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowSelectorUi(
+                                        5,
                                         "3",
                                         TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowSelectorState.SELECTED_WORKED
                                     ),
                                     TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowSelectorUi(
+                                        6,
                                         "3",
                                         TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowSelectorState.SELECTED_WORKED
-                                    ),
-                                    TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowSelectorUi(
-                                        "3",
-                                        TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowSelectorState.SELECTED_WORKED
-                                    ),
-                                    TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowSelectorUi(
-                                        "3",
-                                        TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowSelectorState.SELECTED_WORKED
-                                    ),
-                                    TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowSelectorUi(
-                                        "3",
-                                        TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowSelectorState.UNSELECTED
                                     )
                                 ),
                                 rowAssignmentUi = listOf(
                                     TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowAssignmentUi(
+                                        1,
                                         resourceProvider.getString(R.string.item_assignment_row, 3),
                                         435,
                                         123,
@@ -289,6 +240,7 @@ class UpdateRatesVolumeViewModel @Inject constructor(
                                         )
                                     ),
                                     TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowAssignmentUi(
+                                        2,
                                         resourceProvider.getString(R.string.item_assignment_row, 3),
                                         435,
                                         123,
@@ -299,6 +251,7 @@ class UpdateRatesVolumeViewModel @Inject constructor(
                                         )
                                     ),
                                     TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowAssignmentUi(
+                                        3,
                                         resourceProvider.getString(R.string.item_assignment_row, 3),
                                         435,
                                         123,
@@ -309,6 +262,7 @@ class UpdateRatesVolumeViewModel @Inject constructor(
                                         )
                                     ),
                                     TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowAssignmentUi(
+                                        4,
                                         resourceProvider.getString(R.string.item_assignment_row, 3),
                                         435,
                                         123,
@@ -319,6 +273,18 @@ class UpdateRatesVolumeViewModel @Inject constructor(
                                         )
                                     ),
                                     TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowAssignmentUi(
+                                        5,
+                                        resourceProvider.getString(R.string.item_assignment_row, 3),
+                                        435,
+                                        123,
+                                        resourceProvider.getString(
+                                            R.string.item_assignment_row_previous_worker,
+                                            "Test",
+                                            123
+                                        )
+                                    ),
+                                    TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowAssignmentUi(
+                                        6,
                                         resourceProvider.getString(R.string.item_assignment_row, 3),
                                         435,
                                         123,
@@ -347,14 +313,17 @@ class UpdateRatesVolumeViewModel @Inject constructor(
                                 pieceRate = "",
                                 rowSelectorUi = listOf(
                                     TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowSelectorUi(
+                                        1,
                                         "3",
                                         TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowSelectorState.SELECTED
                                     ),
                                     TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowSelectorUi(
+                                        2,
                                         "3",
                                         TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowSelectorState.SELECTED_WORKED
                                     ),
                                     TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowSelectorUi(
+                                        3,
                                         "3",
                                         TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowSelectorState.UNSELECTED
                                     )
@@ -381,6 +350,28 @@ class UpdateRatesVolumeViewModel @Inject constructor(
     fun updatePieceRate(assignmentId: Int, rate: String) {
         updateAssignment(assignmentId) { oldAssignment ->
             oldAssignment.copy(pieceRate = rate)
+        }
+    }
+
+    fun toggleAssignRow(assignmentId: Int, rowId: Int) {
+        updateAssignment(assignmentId) { oldAssignment ->
+            val selector = oldAssignment.rowSelectorUi.toMutableList()
+            val rowAssignment = oldAssignment.rowAssignmentUi.toMutableList()
+
+            val rowToUpdateIndex = selector.indexOfFirst { it.id == rowId }
+            val rowToUpdate = selector[rowToUpdateIndex]
+
+            val rowAssignmentToUpdateIndex = rowAssignment.indexOfFirst { it.rowId == rowId }
+
+            val updatedState = if (rowToUpdate.isSelected) {
+                rowAssignment.removeAt(rowAssignmentToUpdateIndex)
+                TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowSelectorState.UNSELECTED
+            } else {
+                rowAssignment.add(TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowAssignmentUi(rowId, resourceProvider.getString(R.string.item_assignment_row, rowId), 250, null, "")) // TODO: get info from data loaded from API instead of UiState
+                TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowSelectorState.SELECTED
+            }
+            selector[rowToUpdateIndex] = rowToUpdate.copy(state = updatedState)
+            oldAssignment.copy(rowSelectorUi = selector, rowAssignmentUi = rowAssignment.sortedBy { it.rowId })
         }
     }
 

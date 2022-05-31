@@ -4,9 +4,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+        
         <variable
             name="assignmentRow"
             type="com.linh.androiddeveloperchallenge.ratesvolume.presentation.model.TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowAssignmentUi" />
+        
+        <variable
+            name="onAssignmentChange"
+            type="androidx.databinding.adapters.TextViewBindingAdapter.OnTextChanged" />
+        
     </data>
 
     <LinearLayout
@@ -39,7 +45,8 @@
                 android:layout_width="match_parent"
                 android:gravity="center"
                 android:layout_height="wrap_content"
-                android:inputType="numberDecimal" />
+                android:inputType="numberDecimal"
+                android:onTextChanged="@{onAssignmentChange}" />
 
         </com.google.android.material.textfield.TextInputLayout>
 

@@ -8,4 +8,5 @@ interface UpdateRatesVolumeListener {
     fun onRateChange(assignmentId: Int, rate: String)
     fun onClickRowSelector(assignmentId: Int, rowId: Int)
     fun onClickApplyToAll(assignmentId: Int)
+    fun onRowAssignmentChange(assignmentId: Int, rowId: Int, treesToAssign: Int)
 }

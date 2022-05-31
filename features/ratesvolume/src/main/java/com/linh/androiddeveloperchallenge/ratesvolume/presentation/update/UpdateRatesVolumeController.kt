@@ -60,6 +60,7 @@ class UpdateRatesVolumeController @Inject constructor() : TypedEpoxyController<T
                             AssignmentRowInfoBindingModel_()
                                 .id("$index-assignmentRowInfo")
                                 .assignmentRow(rowAssignmentUi)
+                                .onAssignmentChange { s, start, before, count -> this@UpdateRatesVolumeController.listener.onRowAssignmentChange(assignmentUi.id, rowAssignmentUi.rowId, s.toString().toInt()) }
                         }
 
                     val rowSelectCarouselModel = CarouselModel_()

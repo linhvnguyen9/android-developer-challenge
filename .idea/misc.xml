@@ -9,6 +9,7 @@
         <entry key="features/ratesvolume/src/main/res/drawable/background_job_header.xml" value="0.1" />
         <entry key="features/ratesvolume/src/main/res/drawable/background_row_indicator.xml" value="0.221" />
         <entry key="features/ratesvolume/src/main/res/drawable/background_row_selected.xml" value="0.1665" />
+        <entry key="features/ratesvolume/src/main/res/drawable/background_row_unselected.xml" value="0.207" />
         <entry key="features/ratesvolume/src/main/res/layout/fragment_rates_volume.xml" value="0.21302083333333333" />
         <entry key="features/ratesvolume/src/main/res/layout/fragment_update_rates_volume.xml" value="0.13852073535699017" />
         <entry key="features/ratesvolume/src/main/res/layout/item_assignment.xml" value="0.33" />

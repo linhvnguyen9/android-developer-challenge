@@ -42,8 +42,8 @@ class UpdateRatesVolumeController @Inject constructor() : TypedEpoxyController<T
                         .id("$index-assignmentDetail")
                         .jobName(job.title)
                         .assignmentUi(assignmentUi)
-                        .onClickPieceRate { _ -> this@UpdateRatesVolumeController.listener.onClickRateType(assignmentUi.id, rateType = RateType.PieceRate()) }
-                        .onClickWages { _ -> this@UpdateRatesVolumeController.listener.onClickRateType(assignmentUi.id, rateType = RateType.Wages) }
+                        .onClickPieceRate { _ -> this@UpdateRatesVolumeController.listener.onClickRateType(assignmentUi.id, rateType = RateType.PIECE_RATE) }
+                        .onClickWages { _ -> this@UpdateRatesVolumeController.listener.onClickRateType(assignmentUi.id, rateType = RateType.WAGES) }
                         .onRateChange { s, _, _, _ -> this@UpdateRatesVolumeController.listener.onRateChange(assignmentUi.id, s.toString()) }
                         .onClickApplyToAll { _ -> this@UpdateRatesVolumeController.listener.onClickApplyToAll(assignmentUi.id) }
 

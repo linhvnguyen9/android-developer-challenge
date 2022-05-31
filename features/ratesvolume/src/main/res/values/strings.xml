@@ -1,4 +1,6 @@
 <resources>
+    <string name="item_job_pruning">Pruning</string>
+    <string name="item_job_thining">Thining</string>
     <string name="item_assignment_orchard">Orchard</string>
     <string name="item_assignment_rate">Rate</string>
     <string name="item_assignment_row">Trees for row %1$d</string>

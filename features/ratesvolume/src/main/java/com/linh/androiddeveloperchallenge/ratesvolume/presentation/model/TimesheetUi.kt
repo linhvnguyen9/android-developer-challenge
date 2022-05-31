@@ -24,8 +24,8 @@ data class TimesheetUi(
                 val rowSelectorUi: List<RowSelectorUi>,
                 val rowAssignmentUi: List<RowAssignmentUi>
             ) {
-                val isRateTypeWagesSelected get() = selectedRateType == RateType.Wages
-                val isRateTypePieceRateSelected get() = selectedRateType is RateType.PieceRate
+                val isRateTypeWagesSelected get() = selectedRateType == RateType.WAGES
+                val isRateTypePieceRateSelected get() = selectedRateType == RateType.PIECE_RATE
 
                 data class StaffUi(
                     val fullName: String,
@@ -68,7 +68,9 @@ data class TimesheetUi(
                     val maxCount: Int,
                     val assignedCount: Int? = null,
                     val previousWorker: String
-                )
+                ) {
+                    val maxCountLabel get() = "/ $maxCount"
+                }
             }
         }
     }

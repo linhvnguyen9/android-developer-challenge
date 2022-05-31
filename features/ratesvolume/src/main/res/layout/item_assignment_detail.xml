@@ -25,6 +25,10 @@
             name="onRateChange"
             type="androidx.databinding.adapters.TextViewBindingAdapter.OnTextChanged" />
 
+        <variable
+            name="onClickApplyToAll"
+            type="android.view.View.OnClickListener" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -179,6 +183,7 @@
             android:layout_height="wrap_content"
             android:text="@string/assignment_detail_apply_to_all"
             isVisible="@{assignmentUi.isRateTypePieceRateSelected}"
+            android:onClick="@{onClickApplyToAll}"
             app:layout_constraintBottom_toBottomOf="@id/text_input_layout_assignment_rate"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/text_input_layout_assignment_rate" />

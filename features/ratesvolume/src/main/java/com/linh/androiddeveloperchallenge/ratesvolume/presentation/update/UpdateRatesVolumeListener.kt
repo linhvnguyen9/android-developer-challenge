@@ -7,4 +7,5 @@ interface UpdateRatesVolumeListener {
     fun onClickRateType(assignmentId: Int, rateType: RateType)
     fun onRateChange(assignmentId: Int, rate: String)
     fun onClickRowSelector(assignmentId: Int, rowId: Int)
+    fun onClickApplyToAll(assignmentId: Int)
 }

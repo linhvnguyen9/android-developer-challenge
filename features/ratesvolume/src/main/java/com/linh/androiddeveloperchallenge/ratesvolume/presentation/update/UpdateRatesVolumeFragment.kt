@@ -49,6 +49,10 @@ class UpdateRatesVolumeFragment :
         viewModel.toggleAssignRow(assignmentId, rowId)
     }
 
+    override fun onClickApplyToAll(assignmentId: Int) {
+        viewModel.applyRateToAll(assignmentId)
+    }
+
     private fun observeData() {
         viewModel.uiModel.observe(viewLifecycleOwner) {
             controller.setData(it)

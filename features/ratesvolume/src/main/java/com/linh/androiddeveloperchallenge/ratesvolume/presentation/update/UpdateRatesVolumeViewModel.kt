@@ -397,6 +397,17 @@ class UpdateRatesVolumeViewModel @Inject constructor(
         }
     }
 
+    fun updateRowAssignment(assignmentId: Int, rowId: Int, treesToAssign: Int) {
+        updateAssignment(assignmentId) { oldAssignment ->
+            val rowAssignments = oldAssignment.rowAssignmentUi.toMutableList()
+            val rowToUpdateIndex = rowAssignments.indexOfFirst { it.rowId == rowId }
+            val rowToUpdate = rowAssignments[rowToUpdateIndex]
+
+            rowAssignments[rowToUpdateIndex] = rowToUpdate.copy(assignedCount = treesToAssign)
+            oldAssignment.copy(rowAssignmentUi = rowAssignments.sortedBy { it.rowId })
+        }
+    }
+
     private fun updateAssignment(
         assignmentId: Int,
         onUpdate: (oldAssignment: TimesheetUi.SuccessUi.JobUi.AssignmentUi) -> TimesheetUi.SuccessUi.JobUi.AssignmentUi

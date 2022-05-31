@@ -375,6 +375,28 @@ class UpdateRatesVolumeViewModel @Inject constructor(
         }
     }
 
+    fun applyRateToAll(assignmentId: Int) {
+        (_uiModel.value?.uiState as? TimesheetUiState.Success)?.let { oldState ->
+            val jobs = oldState.successUi.jobs.toMutableList()
+            val updatedJob = jobs.find { it.assignments.find { assignmentId == it.id } != null }
+            val oldAssignmentIndex = updatedJob?.assignments?.indexOfFirst { it.id == assignmentId }
+            oldAssignmentIndex?.let {
+                val assignments = updatedJob.assignments.toMutableList()
+                val currentAssignment = updatedJob.assignments[oldAssignmentIndex]
+                val updatedAssignments = assignments.map { if (it.isRateTypePieceRateSelected) it.copy(pieceRate = currentAssignment.pieceRate) else it }
+                val updatedJobIndex =
+                    jobs.indexOfFirst { it.assignments.find { assignmentId == it.id } != null }
+                jobs[updatedJobIndex] = updatedJob.copy(assignments = updatedAssignments)
+
+                _uiModel.value = _uiModel.value?.copy(
+                    uiState = oldState.copy(
+                        successUi = oldState.successUi.copy(jobs = jobs)
+                    )
+                )
+            }
+        }
+    }
+
     private fun updateAssignment(
         assignmentId: Int,
         onUpdate: (oldAssignment: TimesheetUi.SuccessUi.JobUi.AssignmentUi) -> TimesheetUi.SuccessUi.JobUi.AssignmentUi

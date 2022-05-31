@@ -45,6 +45,7 @@ class UpdateRatesVolumeController @Inject constructor() : TypedEpoxyController<T
                         .onClickPieceRate { _ -> this@UpdateRatesVolumeController.listener.onClickRateType(assignmentUi.id, rateType = RateType.PieceRate()) }
                         .onClickWages { _ -> this@UpdateRatesVolumeController.listener.onClickRateType(assignmentUi.id, rateType = RateType.Wages) }
                         .onRateChange { s, _, _, _ -> this@UpdateRatesVolumeController.listener.onRateChange(assignmentUi.id, s.toString()) }
+                        .onClickApplyToAll { _ -> this@UpdateRatesVolumeController.listener.onClickApplyToAll(assignmentUi.id) }
 
                     val rowSelectCarouselItems =
                         assignmentUi.rowSelectorUi.mapIndexed { index, rowSelectorUi ->

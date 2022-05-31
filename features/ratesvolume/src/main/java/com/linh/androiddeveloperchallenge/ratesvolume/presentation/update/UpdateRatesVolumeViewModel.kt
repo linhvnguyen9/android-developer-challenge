@@ -7,9 +7,9 @@ import androidx.lifecycle.viewModelScope
 import com.linh.androiddeveloperchallenge.common.base.BaseViewModel
 import com.linh.androiddeveloperchallenge.common.util.ResourceProvider
 import com.linh.androiddeveloperchallenge.ratesvolume.R
-import com.linh.androiddeveloperchallenge.ratesvolume.domain.entity.RateType
-import com.linh.androiddeveloperchallenge.ratesvolume.domain.entity.Timesheet
+import com.linh.androiddeveloperchallenge.ratesvolume.domain.entity.*
 import com.linh.androiddeveloperchallenge.ratesvolume.domain.usecase.GetTimesheetUseCase
+import com.linh.androiddeveloperchallenge.ratesvolume.domain.usecase.UpdateTimesheetUseCase
 import com.linh.androiddeveloperchallenge.ratesvolume.presentation.model.TimesheetUi
 import com.linh.androiddeveloperchallenge.ratesvolume.presentation.model.TimesheetUiState
 import com.linh.androiddeveloperchallenge.ratesvolume.presentation.model.mapper.TimesheetUiMapper
@@ -21,6 +21,7 @@ import javax.inject.Inject
 class UpdateRatesVolumeViewModel @Inject constructor(
     private val resourceProvider: ResourceProvider,
     private val getTimesheetUseCase: GetTimesheetUseCase,
+    private val updateTimesheetUseCase: UpdateTimesheetUseCase,
     private val timesheetMapper: TimesheetUiMapper
 ) : BaseViewModel() {
     private val responseModel = MutableLiveData<Timesheet>()
@@ -103,20 +104,61 @@ class UpdateRatesVolumeViewModel @Inject constructor(
         }
     }
 
+    fun addMaxTreesToAssignments(jobId: Int) {
+        // TODO: Get the number of assignments that has the row assigned from uiModel
+        // TODO: Get previously completed trees in the same job from use case response
+        // TODO: Calculate the number of trees per user
+        // TODO: Update assigned trees for every assignments that has that row assigned
+    }
+
     fun updateRowAssignment(assignmentId: Int, rowId: Int, treesToAssign: Int) {
         updateAssignment(assignmentId) { oldAssignment ->
             val rowAssignments = oldAssignment.rowAssignmentUi.toMutableList()
             val rowToUpdateIndex = rowAssignments.indexOfFirst { it.rowId == rowId }
             val rowToUpdate = rowAssignments[rowToUpdateIndex]
 
-            rowAssignments[rowToUpdateIndex] = rowToUpdate.copy(assignedCount = treesToAssign)
+            rowAssignments[rowToUpdateIndex] =
+                rowToUpdate.copy(assignedCount = treesToAssign)
+            // TODO: Check for trees assigned in the same row in other assignments, and previously completed trees
             oldAssignment.copy(rowAssignmentUi = rowAssignments.sortedBy { it.rowId })
+        }
+    }
+
+    fun submitData() {
+        viewModelScope.launch {
+            val state = (_uiModel.value?.uiState as? TimesheetUiState.Success)?.successUi
+
+            state?.let {
+                updateTimesheetUseCase(
+                    UpdateTimesheetUseCase.Input(
+                        it.jobs.map { job ->
+                            UpdateTimesheetUseCase.Input.JobInput(
+                                job.type,
+                                job.assignments.map { assignment ->
+                                    UpdateTimesheetUseCase.Input.AssignmentInput(
+                                        assignment.selectedRateType,
+                                        assignment.pieceRate.toDoubleOrNull(),
+                                        assignment.rowSelectorUi.map { row ->
+                                            UpdateTimesheetUseCase.Input.AssignedRowInput(
+                                                row.id,
+                                                row.isSelected,
+                                                assignment.rowAssignmentUi.find { it.rowId == row.id }?.assignedCount
+                                                    ?: 0
+                                            )
+                                        }
+                                    )
+                                }
+                            )
+                        }
+                    )
+                )
+            }
         }
     }
 
     private fun fetchData() {
         viewModelScope.launch {
-            responseModel.value = getTimesheetUseCase()
+            responseModel.value = getTimesheetUseCase() // TODO: Handle API errors
         }
     }
 

@@ -11,4 +11,5 @@
     <string name="assignment_detail_wages">Wages</string>
     <string name="assignment_detail_apply_to_all">Apply to all</string>
     <string name="item_assignment_detail_wages_message">%1$s will be paid by wages in this timesheet.</string>
+    <string name="all_confirm">Confirm</string>
 </resources>

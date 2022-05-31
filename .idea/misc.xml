@@ -16,6 +16,7 @@
         <entry key="features/ratesvolume/src/main/res/layout/item_assignment_detail.xml" value="0.33" />
         <entry key="features/ratesvolume/src/main/res/layout/item_assignment_row.xml" value="0.5" />
         <entry key="features/ratesvolume/src/main/res/layout/item_assignment_row_info.xml" value="0.25" />
+        <entry key="features/ratesvolume/src/main/res/layout/item_confirm.xml" value="0.16374519025224454" />
         <entry key="features/ratesvolume/src/main/res/layout/item_job.xml" value="0.33" />
         <entry key="features/ratesvolume/src/main/res/layout/item_job_header.xml" value="0.5" />
         <entry key="features/ratesvolume/src/main/res/layout/item_row.xml" value="0.28957365977205574" />

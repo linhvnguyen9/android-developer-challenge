@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="onClick"
+            type="android.view.View.OnClickListener" />
+
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/margin_vertical_item_confirm"
+        android:layout_marginHorizontal="@dimen/margin_horizontal_item_confirm">
+
+        <Button
+            android:id="@+id/button_assignment_piece_rate"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_item_assignment_rate_button"
+            android:layout_marginTop="@dimen/margin_top_item_assignment_rate_button"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:text="@string/all_confirm"
+            android:onClick="@{onClick}" />
+
+    </FrameLayout>
+</layout>

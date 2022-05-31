@@ -33,7 +33,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_top_item_assignment_row_info"
-            app:suffixText="/ 556"
+            app:suffixText="@{assignmentRow.maxCountLabel}"
             app:expandedHintEnabled="false"
             android:gravity="center"
             app:layout_constraintEnd_toStartOf="@+id/button_assignment_rate_apply_all"

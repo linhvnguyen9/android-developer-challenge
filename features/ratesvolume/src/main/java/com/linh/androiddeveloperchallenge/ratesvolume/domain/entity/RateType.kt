@@ -1,6 +1,10 @@
 package com.linh.androiddeveloperchallenge.ratesvolume.domain.entity
 
-sealed class RateType {
-    object Wages : RateType()
-    data class PieceRate(val hourlyRate: Double? = null) : RateType()
+enum class RateType {
+    WAGES,
+    PIECE_RATE;
+
+    companion object {
+        fun from(type: String) = values().find { type.uppercase() == it.name } ?: WAGES
+    }
 }

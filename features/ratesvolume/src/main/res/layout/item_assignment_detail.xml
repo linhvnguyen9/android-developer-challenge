@@ -4,6 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+        
+        <variable
+            name="jobName"
+            type="String" />
 
         <variable
             name="assignmentUi"
@@ -186,7 +190,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             isVisible="@{assignmentUi.isRateTypeWagesSelected}"
-            android:text="Canker Removal will be paid by wages in this timesheet."
+            android:text="@{@string/item_assignment_detail_wages_message(jobName)}"
             app:layout_constraintTop_toBottomOf="@id/button_assignment_piece_rate"
             tools:visibility="gone" />
 

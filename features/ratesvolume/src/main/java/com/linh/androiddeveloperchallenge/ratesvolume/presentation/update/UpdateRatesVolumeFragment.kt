@@ -6,7 +6,6 @@ import com.linh.androiddeveloperchallenge.ratesvolume.BR
 import com.linh.androiddeveloperchallenge.ratesvolume.R
 import com.linh.androiddeveloperchallenge.ratesvolume.databinding.FragmentUpdateRatesVolumeBinding
 import com.linh.androiddeveloperchallenge.ratesvolume.domain.entity.RateType
-import com.linh.androiddeveloperchallenge.ratesvolume.presentation.model.TimesheetUi
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -44,6 +43,10 @@ class UpdateRatesVolumeFragment :
 
     override fun onRateChange(assignmentId: Int, rate: String) {
         viewModel.updatePieceRate(assignmentId, rate)
+    }
+
+    override fun onClickRowSelector(assignmentId: Int, rowId: Int) {
+        viewModel.toggleAssignRow(assignmentId, rowId)
     }
 
     private fun observeData() {

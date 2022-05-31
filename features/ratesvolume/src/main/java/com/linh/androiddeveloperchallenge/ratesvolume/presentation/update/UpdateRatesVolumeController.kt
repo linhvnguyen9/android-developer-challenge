@@ -40,6 +40,7 @@ class UpdateRatesVolumeController @Inject constructor() : TypedEpoxyController<T
                 val assignmentsItems = job.assignments.mapIndexed { index, assignmentUi ->
                     val assignmentDetailModel = AssignmentDetailBindingModel_()
                         .id("$index-assignmentDetail")
+                        .jobName(job.title)
                         .assignmentUi(assignmentUi)
                         .onClickPieceRate { _ -> this@UpdateRatesVolumeController.listener.onClickRateType(assignmentUi.id, rateType = RateType.PieceRate()) }
                         .onClickWages { _ -> this@UpdateRatesVolumeController.listener.onClickRateType(assignmentUi.id, rateType = RateType.Wages) }
@@ -50,6 +51,7 @@ class UpdateRatesVolumeController @Inject constructor() : TypedEpoxyController<T
                             AssignmentRowBindingModel_()
                                 .id("$index-assignmentRow")
                                 .rowSelectorUi(rowSelectorUi)
+                                .onClick { _ -> this@UpdateRatesVolumeController.listener.onClickRowSelector(assignmentUi.id, rowSelectorUi.id) }
                         }
 
                     val rowAssignCarouselItems =

@@ -8,6 +8,7 @@ dependencies {
     implementation Dependencies.constraintLayout
     implementation Dependencies.navigationFragment
     implementation Dependencies.navigationUi
+    implementation Dependencies.gson
 
     testImplementation TestDependencies.junit
     androidTestImplementation TestDependencies.junit

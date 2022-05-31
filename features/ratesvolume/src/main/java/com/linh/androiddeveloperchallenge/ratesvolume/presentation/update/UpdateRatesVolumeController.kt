@@ -90,5 +90,10 @@ class UpdateRatesVolumeController @Inject constructor() : TypedEpoxyController<T
                 }
             }
         }
+
+        confirm {
+            id("confirm")
+            onClick { _ -> this@UpdateRatesVolumeController.listener.onClickConfirm() }
+        }
     }
 }

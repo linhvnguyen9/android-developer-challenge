@@ -1,7 +1,10 @@
 package com.linh.androiddeveloperchallenge.ratesvolume.data.remote
 
+import com.google.gson.Gson
 import com.linh.androiddeveloperchallenge.ratesvolume.data.remote.model.GetTimesheetResponse
+import com.linh.androiddeveloperchallenge.ratesvolume.data.remote.model.UpdateTimesheetRequest
 import kotlinx.coroutines.delay
+import timber.log.Timber
 import javax.inject.Inject
 
 class RatesVolumeServiceMockImpl @Inject constructor() : RatesVolumeService {
@@ -71,7 +74,7 @@ class RatesVolumeServiceMockImpl @Inject constructor() : RatesVolumeService {
                     jobRow = listOf(),
                     assignments = listOf(
                         GetTimesheetResponse.Job.Assignment(
-                            id = 1,
+                            id = 3,
                             staff = GetTimesheetResponse.Job.Staff(
                                 "Linh",
                                 "Nguyen"
@@ -99,5 +102,9 @@ class RatesVolumeServiceMockImpl @Inject constructor() : RatesVolumeService {
                 )
             )
         )
+    }
+
+    override suspend fun updateTimesheet(request: UpdateTimesheetRequest) {
+        Timber.d(request.toString())
     }
 }

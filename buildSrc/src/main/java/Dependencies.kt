@@ -26,6 +26,7 @@ object Dependencies {
     const val epoxy = "com.airbnb.android:epoxy:${Versions.epoxy}"
     const val epoxyAnnotation = "com.airbnb.android:epoxy-processor:${Versions.epoxy}"
     const val epoxyDatabinding = "com.airbnb.android:epoxy-databinding:${Versions.epoxy}"
+    const val gson = "com.google.code.gson:gson:${Versions.gson}"
 
     // Debugging dependencies
     const val timber = "com.jakewharton.timber:timber:${Versions.timber}"
@@ -45,6 +46,7 @@ private object Versions {
     const val hilt = "2.41"
     const val navigation = "2.4.2"
     const val epoxy = "4.6.3"
+    const val gson = "2.9.0"
 
     // Test dependencies
     const val junit = "4.13.2"

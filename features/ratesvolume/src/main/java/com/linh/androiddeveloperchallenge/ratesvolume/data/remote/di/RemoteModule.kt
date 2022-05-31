@@ -1,7 +1,7 @@
 package com.linh.androiddeveloperchallenge.ratesvolume.data.remote.di
 
-import com.linh.androiddeveloperchallenge.ratesvolume.data.remote.RatesVolumeServiceMockImpl
 import com.linh.androiddeveloperchallenge.ratesvolume.data.remote.RatesVolumeService
+import com.linh.androiddeveloperchallenge.ratesvolume.data.remote.RatesVolumeServiceMockImpl
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn

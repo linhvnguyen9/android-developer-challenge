@@ -18,4 +18,6 @@
     <dimen name="margin_top_item_assignment_rate_button">8dp</dimen>
     <dimen name="margin_top_item_assignment_rate_type_label">16dp</dimen>
     <dimen name="margin_top_item_assignment_row_info">8dp</dimen>
+    <dimen name="margin_vertical_item_confirm">16dp</dimen>
+    <dimen name="margin_horizontal_item_confirm">16dp</dimen>
 </resources>

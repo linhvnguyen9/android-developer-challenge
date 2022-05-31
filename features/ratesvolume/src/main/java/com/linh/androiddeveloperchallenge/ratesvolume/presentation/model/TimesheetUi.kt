@@ -2,6 +2,7 @@ package com.linh.androiddeveloperchallenge.ratesvolume.presentation.model
 
 import androidx.annotation.DrawableRes
 import com.linh.androiddeveloperchallenge.ratesvolume.R
+import com.linh.androiddeveloperchallenge.ratesvolume.domain.entity.JobType
 import com.linh.androiddeveloperchallenge.ratesvolume.domain.entity.RateType
 
 data class TimesheetUi(
@@ -12,6 +13,7 @@ data class TimesheetUi(
     ) {
         data class JobUi(
             val title: String,
+            val type: JobType,
             val assignments: List<AssignmentUi>
         ) {
             data class AssignmentUi(

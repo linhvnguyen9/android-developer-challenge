@@ -57,6 +57,10 @@ class UpdateRatesVolumeFragment :
         viewModel.updateRowAssignment(assignmentId, rowId, treesToAssign)
     }
 
+    override fun onClickConfirm() {
+        viewModel.submitData()
+    }
+
     private fun observeData() {
         viewModel.uiModel.observe(viewLifecycleOwner) {
             controller.setData(it)

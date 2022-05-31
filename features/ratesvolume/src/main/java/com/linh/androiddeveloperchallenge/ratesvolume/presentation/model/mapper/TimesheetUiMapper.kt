@@ -21,6 +21,7 @@ class TimesheetUiMapper @Inject constructor(private val resourceProvider: Resour
                                 JobType.PRUNING -> resourceProvider.getString(R.string.item_job_pruning)
                                 JobType.THINING -> resourceProvider.getString(R.string.item_job_thining)
                             },
+                            type = it.jobType,
                             assignments = it.assignments.map { assignment ->
                                 TimesheetUi.SuccessUi.JobUi.AssignmentUi(
                                     assignment.id,

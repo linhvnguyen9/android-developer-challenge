@@ -50,16 +50,17 @@ class TimesheetUiMapper @Inject constructor(private val resourceProvider: Resour
                                         )
                                     },
                                     rowAssignmentUi = assignment.assignmentRow.filter { it.assigned }
-                                        .map {
+                                        .map { assignmentRow ->
                                             TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowAssignmentUi(
-                                                it.row.row.id,
-                                                resourceProvider.getString(
+                                                rowId = assignmentRow.row.row.id,
+                                                row = resourceProvider.getString(
                                                     R.string.item_assignment_row,
-                                                    it.row.row.id
+                                                    assignmentRow.row.row.id
                                                 ),
-                                                it.row.row.treeCount,
-                                                it.row.completedCount,
-                                                "${it.row.lastWorker.firstName} ${it.row.lastWorker.lastName} (${it.row.completedCount})"
+                                                maxCount = assignmentRow.row.row.treeCount,
+                                                assignedCount = assignmentRow.assignedTreesCount,
+                                                previousWorkerName = "${assignmentRow.row.lastWorker.firstName} ${assignmentRow.row.lastWorker.lastName}",
+                                                workedCount = assignmentRow.row.completedCount ?: 0
                                             )
                                         }
                                 )

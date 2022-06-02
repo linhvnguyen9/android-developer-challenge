@@ -11,8 +11,8 @@ class GetTimesheetResponse(
     ) {
         data class JobRow(
             val row: Row,
-            val completedCount: Int,
-            val lastWorker: Staff
+            val completedCount: Int?,
+            val lastWorker: Staff?
         )
 
         data class Row(
@@ -38,12 +38,12 @@ class GetTimesheetResponse(
             data class AssignmentRow(
                 val row: JobRow,
                 val assigned: Boolean,
-                val assignedTreesCount: Int
+                val assignedTreesCount: Int?
             ) {
                 data class JobRow(
                     val row: Row,
-                    val completedCount: Int,
-                    val lastWorker: Staff
+                    val completedCount: Int?,
+                    val lastWorker: Staff?
                 )
             }
         }

@@ -47,8 +47,8 @@ class GetTimesheetMapper @Inject constructor() : BaseMapper<GetTimesheetResponse
     private fun GetTimesheetResponse.Job.JobRow.getJobRow() =
         Row(row.id, row.num, row.treeCount)
 
-    private fun GetTimesheetResponse.Job.JobRow.getStaff() =
-        Staff(lastWorker.firstName, lastWorker.lastName)
+    private fun GetTimesheetResponse.Job.JobRow?.getStaff() =
+        Staff(this?.lastWorker?.firstName.orEmpty(), this?.lastWorker?.lastName.orEmpty())
 
     private fun GetTimesheetResponse.Job.Assignment.getAssignmentRow() =
         assignmentRow.map { row ->
@@ -62,14 +62,14 @@ class GetTimesheetMapper @Inject constructor() : BaseMapper<GetTimesheetResponse
     private fun GetTimesheetResponse.Job.Assignment.AssignmentRow.getRow() =
         JobRow(
             row = row.getRow(),
-            completedCount = row.completedCount,
-            lastWorker = getLastWorker()
+            completedCount = row.completedCount ?: 0,
+            lastWorker = row.getLastWorker()
         )
 
-    private fun GetTimesheetResponse.Job.Assignment.AssignmentRow.getLastWorker() =
+    private fun GetTimesheetResponse.Job.Assignment.AssignmentRow.JobRow.getLastWorker() =
         Staff(
-            row.lastWorker.firstName,
-            row.lastWorker.lastName
+            lastWorker?.firstName.orEmpty(),
+            lastWorker?.lastName.orEmpty()
         )
 
     private fun GetTimesheetResponse.Job.Assignment.AssignmentRow.JobRow.getRow() =

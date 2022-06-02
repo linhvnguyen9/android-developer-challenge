@@ -4,6 +4,7 @@ class GetTimesheetResponse(
     val jobs: List<Job>
 ) {
     data class Job(
+        val id: Int,
         val title: String,
         val jobRow: List<JobRow>,
         val assignments: List<Assignment>

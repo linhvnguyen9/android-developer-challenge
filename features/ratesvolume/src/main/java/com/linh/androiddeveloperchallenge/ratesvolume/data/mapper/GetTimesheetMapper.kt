@@ -12,6 +12,7 @@ class GetTimesheetMapper @Inject constructor() : BaseMapper<GetTimesheetResponse
 
     private fun GetTimesheetResponse.getJobs() = jobs.map {
         Job(
+            id = it.id,
             jobType = JobType.from(it.title),
             jobRow = it.getJobRows(),
             assignments = it.getAssignments()

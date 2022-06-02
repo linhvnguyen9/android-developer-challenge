@@ -53,8 +53,12 @@ class UpdateRatesVolumeFragment :
         viewModel.applyRateToAll(assignmentId)
     }
 
-    override fun onRowAssignmentChange(assignmentId: Int, rowId: Int, treesToAssign: Int) {
+    override fun onRowAssignmentChange(assignmentId: Int, rowId: Int, treesToAssign: Int?) {
         viewModel.updateRowAssignment(assignmentId, rowId, treesToAssign)
+    }
+
+    override fun onClickAddMaxTrees(jobId: Int) {
+        viewModel.addMaxTreesToAssignments(jobId)
     }
 
     override fun onClickConfirm() {

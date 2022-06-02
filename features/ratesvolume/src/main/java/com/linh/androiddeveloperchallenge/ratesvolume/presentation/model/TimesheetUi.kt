@@ -12,6 +12,7 @@ data class TimesheetUi(
         val jobs: List<JobUi>
     ) {
         data class JobUi(
+            val id: Int,
             val title: String,
             val type: JobType,
             val assignments: List<AssignmentUi>
@@ -71,6 +72,7 @@ data class TimesheetUi(
                     val assignedCount: Int? = null,
                     val previousWorker: String
                 ) {
+                    val assignedCountText = assignedCount?.toString()
                     val maxCountLabel get() = "/ $maxCount"
                 }
             }

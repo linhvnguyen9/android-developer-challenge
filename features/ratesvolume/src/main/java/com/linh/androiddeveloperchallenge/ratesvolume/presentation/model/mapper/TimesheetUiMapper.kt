@@ -17,6 +17,7 @@ class TimesheetUiMapper @Inject constructor(private val resourceProvider: Resour
                 TimesheetUi.SuccessUi(
                     input.jobs.map {
                         TimesheetUi.SuccessUi.JobUi(
+                            id = it.id,
                             title = when (it.jobType) {
                                 JobType.PRUNING -> resourceProvider.getString(R.string.item_job_pruning)
                                 JobType.THINING -> resourceProvider.getString(R.string.item_job_thining)
@@ -38,7 +39,11 @@ class TimesheetUiMapper @Inject constructor(private val resourceProvider: Resour
                                             it.row.row.id,
                                             it.row.row.num.toString(),
                                             state = if (it.assigned) {
-                                                TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowSelectorState.SELECTED
+                                                if (it.row.completedCount != 0) {
+                                                    TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowSelectorState.SELECTED_WORKED
+                                                } else {
+                                                    TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowSelectorState.SELECTED
+                                                }
                                             } else {
                                                 TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowSelectorState.UNSELECTED
                                             }

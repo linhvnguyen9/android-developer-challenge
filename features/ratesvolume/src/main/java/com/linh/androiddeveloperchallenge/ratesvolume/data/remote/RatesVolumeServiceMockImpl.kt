@@ -1,6 +1,5 @@
 package com.linh.androiddeveloperchallenge.ratesvolume.data.remote
 
-import com.google.gson.Gson
 import com.linh.androiddeveloperchallenge.ratesvolume.data.remote.model.GetTimesheetResponse
 import com.linh.androiddeveloperchallenge.ratesvolume.data.remote.model.UpdateTimesheetRequest
 import kotlinx.coroutines.delay
@@ -14,6 +13,7 @@ class RatesVolumeServiceMockImpl @Inject constructor() : RatesVolumeService {
         return GetTimesheetResponse(
             jobs = listOf(
                 GetTimesheetResponse.Job(
+                    id = 1,
                     title = "PRUNING",
                     jobRow = listOf(
                         GetTimesheetResponse.Job.JobRow(
@@ -59,6 +59,40 @@ class RatesVolumeServiceMockImpl @Inject constructor() : RatesVolumeService {
                                 GetTimesheetResponse.Job.Assignment.AssignmentRow(
                                     row = GetTimesheetResponse.Job.Assignment.AssignmentRow.JobRow(
                                         row = GetTimesheetResponse.Job.Row(3, 3, 500),
+                                        completedCount = 100,
+                                        lastWorker = GetTimesheetResponse.Job.Staff("Robert", "Miller")
+                                    ),
+                                    assigned = true,
+                                    assignedTreesCount = 0
+                                )
+                            )
+                        ),
+                        GetTimesheetResponse.Job.Assignment(
+                            id = 2,
+                            staff = GetTimesheetResponse.Job.Staff(
+                                "Ethan",
+                                "Pham"
+                            ),
+                            orchard = GetTimesheetResponse.Job.Assignment.Orchard(
+                                id = 123123234,
+                                name = "Benji"
+                            ),
+                            block = "23SERSD",
+                            rateType = "WAGES",
+                            pieceRate = null,
+                            assignmentRow = listOf(
+                                GetTimesheetResponse.Job.Assignment.AssignmentRow(
+                                    row = GetTimesheetResponse.Job.Assignment.AssignmentRow.JobRow(
+                                        row = GetTimesheetResponse.Job.Row(1, 1, 200),
+                                        completedCount = 100,
+                                        lastWorker = GetTimesheetResponse.Job.Staff("Li", "Wei")
+                                    ),
+                                    assigned = true,
+                                    assignedTreesCount = 0
+                                ),
+                                GetTimesheetResponse.Job.Assignment.AssignmentRow(
+                                    row = GetTimesheetResponse.Job.Assignment.AssignmentRow.JobRow(
+                                        row = GetTimesheetResponse.Job.Row(2, 2, 500),
                                         completedCount = 50,
                                         lastWorker = GetTimesheetResponse.Job.Staff("Max", "Well")
                                     ),
@@ -70,6 +104,7 @@ class RatesVolumeServiceMockImpl @Inject constructor() : RatesVolumeService {
                     )
                 ),
                 GetTimesheetResponse.Job(
+                    id = 2,
                     title = "THINING",
                     jobRow = listOf(),
                     assignments = listOf(

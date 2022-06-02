@@ -35,6 +35,11 @@ class UpdateRatesVolumeController @Inject constructor() : TypedEpoxyController<T
                 jobHeader {
                     id("$index-jobHeader")
                     jobName(job.title)
+                    onClickAddMaxTrees { _ ->
+                        this@UpdateRatesVolumeController.listener.onClickAddMaxTrees(
+                            job.id
+                        )
+                    }
                 }
 
                 val assignmentsItems = job.assignments.mapIndexed { index, assignmentUi ->
@@ -60,7 +65,13 @@ class UpdateRatesVolumeController @Inject constructor() : TypedEpoxyController<T
                             AssignmentRowInfoBindingModel_()
                                 .id("$index-assignmentRowInfo")
                                 .assignmentRow(rowAssignmentUi)
-                                .onAssignmentChange { s, start, before, count -> this@UpdateRatesVolumeController.listener.onRowAssignmentChange(assignmentUi.id, rowAssignmentUi.rowId, s.toString().toInt()) }
+                                .onAssignmentChange { s, _, _, _ ->
+                                    this@UpdateRatesVolumeController.listener.onRowAssignmentChange(
+                                        assignmentUi.id,
+                                        rowAssignmentUi.rowId,
+                                        s.toString().toIntOrNull()
+                                    )
+                                }
                         }
 
                     val rowSelectCarouselModel = CarouselModel_()

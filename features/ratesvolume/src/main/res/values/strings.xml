@@ -12,4 +12,5 @@
     <string name="assignment_detail_apply_to_all">Apply to all</string>
     <string name="item_assignment_detail_wages_message">%1$s will be paid by wages in this timesheet.</string>
     <string name="all_confirm">Confirm</string>
+    <string name="job_header_add_max_trees">Add max trees</string>
 </resources>

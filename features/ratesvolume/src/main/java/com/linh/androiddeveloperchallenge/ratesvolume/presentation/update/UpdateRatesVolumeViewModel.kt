@@ -105,22 +105,63 @@ class UpdateRatesVolumeViewModel @Inject constructor(
     }
 
     fun addMaxTreesToAssignments(jobId: Int) {
-        // TODO: Get the number of assignments that has the row assigned from uiModel
-        // TODO: Get previously completed trees in the same job from use case response
-        // TODO: Calculate the number of trees per user
-        // TODO: Update assigned trees for every assignments that has that row assigned
+        (_uiModel.value?.uiState as? TimesheetUiState.Success)?.let { oldState ->
+            val jobs = oldState.successUi.jobs.toMutableList()
+            val updatedJobIndex = jobs.indexOfFirst { it.id == jobId }
+
+            if (updatedJobIndex == -1) return
+
+            val updatedJob = jobs[updatedJobIndex]
+
+            val jobRows = responseModel.value?.jobs?.find { it.id == jobId }?.jobRow ?: emptyList()
+
+            jobRows.forEach { jobRow ->
+                val remainingTrees = jobRow.row.treeCount - jobRow.completedCount
+                val usersWithRowAssigned =
+                    updatedJob.assignments.count { it.rowAssignmentUi.find { it.rowId == jobRow.row.id } != null }
+
+                if (usersWithRowAssigned != 0) {
+                    val treesPerUser = remainingTrees / usersWithRowAssigned
+
+                    val assignments = jobs[updatedJobIndex].assignments.map { assignmentUi ->
+                        assignmentUi.copy(
+                            rowAssignmentUi = assignmentUi.rowAssignmentUi.map { rowAssignmentUi ->
+                                if (rowAssignmentUi.rowId == jobRow.row.id) {
+                                    rowAssignmentUi.copy(assignedCount = treesPerUser)
+                                } else {
+                                    rowAssignmentUi
+                                }
+                            }
+                        )
+                    }
+
+                    jobs[updatedJobIndex] = jobs[updatedJobIndex].copy(assignments = assignments)
+                }
+            }
+
+            _uiModel.value = _uiModel.value?.copy(
+                uiState = oldState.copy(
+                    successUi = oldState.successUi.copy(jobs = jobs)
+                )
+            )
+        }
     }
 
-    fun updateRowAssignment(assignmentId: Int, rowId: Int, treesToAssign: Int) {
+    fun updateRowAssignment(assignmentId: Int, rowId: Int, treesToAssign: Int?) {
         updateAssignment(assignmentId) { oldAssignment ->
             val rowAssignments = oldAssignment.rowAssignmentUi.toMutableList()
             val rowToUpdateIndex = rowAssignments.indexOfFirst { it.rowId == rowId }
-            val rowToUpdate = rowAssignments[rowToUpdateIndex]
 
-            rowAssignments[rowToUpdateIndex] =
-                rowToUpdate.copy(assignedCount = treesToAssign)
-            // TODO: Check for trees assigned in the same row in other assignments, and previously completed trees
-            oldAssignment.copy(rowAssignmentUi = rowAssignments.sortedBy { it.rowId })
+            if (rowToUpdateIndex != -1) {
+                val rowToUpdate = rowAssignments[rowToUpdateIndex]
+
+                rowAssignments[rowToUpdateIndex] =
+                    rowToUpdate.copy(assignedCount = treesToAssign)
+                // TODO: Check for trees assigned in the same row in other assignments, and previously completed trees
+                oldAssignment.copy(rowAssignmentUi = rowAssignments.sortedBy { it.rowId })
+            } else {
+                oldAssignment
+            }
         }
     }
 

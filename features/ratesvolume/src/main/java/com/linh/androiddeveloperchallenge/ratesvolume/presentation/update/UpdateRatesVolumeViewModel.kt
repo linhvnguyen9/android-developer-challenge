@@ -72,10 +72,16 @@ class UpdateRatesVolumeViewModel @Inject constructor(
                         resourceProvider.getString(R.string.item_assignment_row, rowId),
                         maxCount = responseRow?.row?.treeCount ?: 0,
                         assignedCount = responseRow?.completedCount,
-                        previousWorker = "${responseRow?.lastWorker?.firstName} ${responseRow?.lastWorker?.lastName} (${responseRow?.completedCount})"
+                        previousWorkerName = "${responseRow?.lastWorker?.firstName} ${responseRow?.lastWorker?.lastName}",
+                        workedCount = responseRow?.completedCount ?: 0
                     )
                 )
-                TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowSelectorState.SELECTED
+
+                if (responseRow?.completedCount != null && responseRow.completedCount != 0) {
+                    TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowSelectorState.SELECTED_WORKED
+                } else {
+                    TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowSelectorState.SELECTED
+                }
             }
             selector[rowToUpdateIndex] = rowToUpdate.copy(state = updatedState)
             oldAssignment.copy(rowSelectorUi = selector, rowAssignmentUi = rowAssignment.sortedBy { it.rowId })
@@ -116,7 +122,7 @@ class UpdateRatesVolumeViewModel @Inject constructor(
             val jobRows = responseModel.value?.jobs?.find { it.id == jobId }?.jobRow ?: emptyList()
 
             jobRows.forEach { jobRow ->
-                val remainingTrees = jobRow.row.treeCount - jobRow.completedCount
+                val remainingTrees = jobRow.row.treeCount - (jobRow.completedCount ?: 0)
                 val usersWithRowAssigned =
                     updatedJob.assignments.count { it.rowAssignmentUi.find { it.rowId == jobRow.row.id } != null }
 

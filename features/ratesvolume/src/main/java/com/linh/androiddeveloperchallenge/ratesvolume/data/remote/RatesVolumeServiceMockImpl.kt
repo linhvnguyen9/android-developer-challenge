@@ -30,6 +30,11 @@ class RatesVolumeServiceMockImpl @Inject constructor() : RatesVolumeService {
                             row = GetTimesheetResponse.Job.Row(3, 3, 500),
                             completedCount = 100,
                             lastWorker = GetTimesheetResponse.Job.Staff("Robert", "Miller")
+                        ),
+                        GetTimesheetResponse.Job.JobRow(
+                            row = GetTimesheetResponse.Job.Row(4, 4, 336),
+                            completedCount = null,
+                            lastWorker = null
                         )
                     ),
                     assignments = listOf(
@@ -54,16 +59,28 @@ class RatesVolumeServiceMockImpl @Inject constructor() : RatesVolumeService {
                                         lastWorker = GetTimesheetResponse.Job.Staff("Li", "Wei")
                                     ),
                                     assigned = true,
-                                    assignedTreesCount = 0
+                                    assignedTreesCount = null
                                 ),
                                 GetTimesheetResponse.Job.Assignment.AssignmentRow(
                                     row = GetTimesheetResponse.Job.Assignment.AssignmentRow.JobRow(
                                         row = GetTimesheetResponse.Job.Row(3, 3, 500),
                                         completedCount = 100,
-                                        lastWorker = GetTimesheetResponse.Job.Staff("Robert", "Miller")
+                                        lastWorker = GetTimesheetResponse.Job.Staff(
+                                            "Robert",
+                                            "Miller"
+                                        )
                                     ),
                                     assigned = true,
-                                    assignedTreesCount = 0
+                                    assignedTreesCount = null
+                                ),
+                                GetTimesheetResponse.Job.Assignment.AssignmentRow(
+                                    row = GetTimesheetResponse.Job.Assignment.AssignmentRow.JobRow(
+                                        row = GetTimesheetResponse.Job.Row(4, 4, 336),
+                                        completedCount = null,
+                                        lastWorker = null
+                                    ),
+                                    assigned = true,
+                                    assignedTreesCount = null
                                 )
                             )
                         ),
@@ -88,7 +105,7 @@ class RatesVolumeServiceMockImpl @Inject constructor() : RatesVolumeService {
                                         lastWorker = GetTimesheetResponse.Job.Staff("Li", "Wei")
                                     ),
                                     assigned = true,
-                                    assignedTreesCount = 0
+                                    assignedTreesCount = null
                                 ),
                                 GetTimesheetResponse.Job.Assignment.AssignmentRow(
                                     row = GetTimesheetResponse.Job.Assignment.AssignmentRow.JobRow(
@@ -97,7 +114,7 @@ class RatesVolumeServiceMockImpl @Inject constructor() : RatesVolumeService {
                                         lastWorker = GetTimesheetResponse.Job.Staff("Max", "Well")
                                     ),
                                     assigned = false,
-                                    assignedTreesCount = 0
+                                    assignedTreesCount = null
                                 )
                             )
                         )
@@ -106,7 +123,18 @@ class RatesVolumeServiceMockImpl @Inject constructor() : RatesVolumeService {
                 GetTimesheetResponse.Job(
                     id = 2,
                     title = "THINING",
-                    jobRow = listOf(),
+                    jobRow = listOf(
+                        GetTimesheetResponse.Job.JobRow(
+                            row = GetTimesheetResponse.Job.Row(1, 1, 200),
+                            completedCount = 100,
+                            lastWorker = GetTimesheetResponse.Job.Staff("Li", "Wei")
+                        ),
+                        GetTimesheetResponse.Job.JobRow(
+                            row = GetTimesheetResponse.Job.Row(2, 2, 200),
+                            completedCount = null,
+                            lastWorker = null
+                        )
+                    ),
                     assignments = listOf(
                         GetTimesheetResponse.Job.Assignment(
                             id = 3,
@@ -129,7 +157,16 @@ class RatesVolumeServiceMockImpl @Inject constructor() : RatesVolumeService {
                                         lastWorker = GetTimesheetResponse.Job.Staff("Li", "Wei")
                                     ),
                                     assigned = true,
-                                    assignedTreesCount = 0
+                                    assignedTreesCount = 50
+                                ),
+                                GetTimesheetResponse.Job.Assignment.AssignmentRow(
+                                    row = GetTimesheetResponse.Job.Assignment.AssignmentRow.JobRow(
+                                        row = GetTimesheetResponse.Job.Row(2, 2, 200),
+                                        completedCount = null,
+                                        lastWorker = null
+                                    ),
+                                    assigned = true,
+                                    assignedTreesCount = 50
                                 )
                             )
                         )

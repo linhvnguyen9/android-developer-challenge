@@ -70,8 +70,11 @@ data class TimesheetUi(
                     val row: String,
                     val maxCount: Int,
                     val assignedCount: Int? = null,
-                    val previousWorker: String
+                    val previousWorkerName: String,
+                    val workedCount: Int
                 ) {
+                    val previousWorker get() = "$previousWorkerName ($workedCount)"
+                    val isPreviousWorkerVisible = previousWorker.isNotBlank() && workedCount != 0
                     val assignedCountText = assignedCount?.toString()
                     val maxCountLabel get() = "/ $maxCount"
                 }

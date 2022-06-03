@@ -147,8 +147,8 @@ class RatesVolumeServiceMockImpl @Inject constructor() : RatesVolumeService {
                                 name = "Benji"
                             ),
                             block = "23SERSD",
-                            rateType = "WAGES",
-                            pieceRate = null,
+                            rateType = "PIECE_RATE",
+                            pieceRate = 53.34,
                             assignmentRow = listOf(
                                 GetTimesheetResponse.Job.Assignment.AssignmentRow(
                                     row = GetTimesheetResponse.Job.Assignment.AssignmentRow.JobRow(

@@ -6,5 +6,6 @@ data class Assignment(
     val orchard: Orchard,
     val block: String,
     val rateType: RateType,
+    val pieceRate: Double? = null,
     val assignmentRow: List<AssignmentRow>
 )

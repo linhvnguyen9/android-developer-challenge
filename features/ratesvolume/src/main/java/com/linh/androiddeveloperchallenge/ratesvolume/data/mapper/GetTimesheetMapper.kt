@@ -34,6 +34,7 @@ class GetTimesheetMapper @Inject constructor() : BaseMapper<GetTimesheetResponse
             orchard = assignment.getOrchard(),
             block = assignment.block,
             rateType = RateType.from(assignment.rateType),
+            pieceRate = assignment.pieceRate,
             assignmentRow = assignment.getAssignmentRow()
         )
     }

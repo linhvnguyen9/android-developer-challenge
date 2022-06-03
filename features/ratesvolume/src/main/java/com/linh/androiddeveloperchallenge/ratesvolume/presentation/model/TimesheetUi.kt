@@ -4,6 +4,7 @@ import androidx.annotation.DrawableRes
 import com.linh.androiddeveloperchallenge.ratesvolume.R
 import com.linh.androiddeveloperchallenge.ratesvolume.domain.entity.JobType
 import com.linh.androiddeveloperchallenge.ratesvolume.domain.entity.RateType
+import java.util.*
 
 data class TimesheetUi(
     val uiState: TimesheetUiState = TimesheetUiState.Loading
@@ -71,7 +72,8 @@ data class TimesheetUi(
                     val maxCount: Int,
                     val assignedCount: Int? = null,
                     val previousWorkerName: String,
-                    val workedCount: Int
+                    val workedCount: Int,
+                    val updatedTimestamp: Long = Calendar.getInstance().timeInMillis // Forces diffing to prevent data desync when user enters an invalid assignedCount and VM resets it back
                 ) {
                     val previousWorker get() = "$previousWorkerName ($workedCount)"
                     val isPreviousWorkerVisible = previousWorker.isNotBlank() && workedCount != 0

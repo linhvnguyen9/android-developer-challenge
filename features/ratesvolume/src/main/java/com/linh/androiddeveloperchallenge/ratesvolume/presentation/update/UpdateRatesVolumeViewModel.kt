@@ -15,7 +15,9 @@ import com.linh.androiddeveloperchallenge.ratesvolume.presentation.model.Timeshe
 import com.linh.androiddeveloperchallenge.ratesvolume.presentation.model.mapper.TimesheetUiMapper
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import java.util.*
 import javax.inject.Inject
+import kotlin.math.min
 
 @HiltViewModel
 class UpdateRatesVolumeViewModel @Inject constructor(
@@ -153,17 +155,30 @@ class UpdateRatesVolumeViewModel @Inject constructor(
         }
     }
 
-    fun updateRowAssignment(assignmentId: Int, rowId: Int, treesToAssign: Int?) {
+    fun updateRowAssignment(jobId: Int, assignmentId: Int, rowId: Int, treesToAssign: Int?) {
         updateAssignment(assignmentId) { oldAssignment ->
+            val job = (_uiModel.value?.uiState as TimesheetUiState.Success).successUi.jobs.find { it.id == jobId }
             val rowAssignments = oldAssignment.rowAssignmentUi.toMutableList()
             val rowToUpdateIndex = rowAssignments.indexOfFirst { it.rowId == rowId }
 
             if (rowToUpdateIndex != -1) {
                 val rowToUpdate = rowAssignments[rowToUpdateIndex]
 
+                val validatedTreesToAssign = if (treesToAssign != null) {
+                    var totalAssigned = 0
+                    job?.assignments?.forEach {
+                        if (it.id != assignmentId) {
+                            totalAssigned += it.rowAssignmentUi.find { it.rowId == rowId }?.assignedCount ?: 0
+                        }
+                    }
+
+                    val maxAssignableTrees = rowAssignments[rowToUpdateIndex].maxCount - totalAssigned - rowAssignments[rowToUpdateIndex].workedCount
+                    minOf(treesToAssign, maxAssignableTrees)
+                } else null
+
                 rowAssignments[rowToUpdateIndex] =
-                    rowToUpdate.copy(assignedCount = treesToAssign)
-                // TODO: Check for trees assigned in the same row in other assignments, and previously completed trees
+                    rowToUpdate.copy(assignedCount = validatedTreesToAssign, updatedTimestamp = Calendar.getInstance().timeInMillis)
+
                 oldAssignment.copy(rowAssignmentUi = rowAssignments.sortedBy { it.rowId })
             } else {
                 oldAssignment

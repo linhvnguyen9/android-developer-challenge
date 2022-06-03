@@ -45,7 +45,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:inputType="numberDecimal"
+                android:digits="0123456789"
+                android:inputType="numberSigned"
                 android:onTextChanged="@{onAssignmentChange}"
                 android:text="@{assignmentRow.assignedCountText}" />
 

@@ -67,9 +67,10 @@ class UpdateRatesVolumeController @Inject constructor() : TypedEpoxyController<T
                                 .assignmentRow(rowAssignmentUi)
                                 .onAssignmentChange { s, _, _, _ ->
                                     this@UpdateRatesVolumeController.listener.onRowAssignmentChange(
-                                        assignmentUi.id,
-                                        rowAssignmentUi.rowId,
-                                        s.toString().toIntOrNull()
+                                        jobId = job.id,
+                                        assignmentId = assignmentUi.id,
+                                        rowId = rowAssignmentUi.rowId,
+                                        treesToAssign = s.toString().toIntOrNull()
                                     )
                                 }
                         }

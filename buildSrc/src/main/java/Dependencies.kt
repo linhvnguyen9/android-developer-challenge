@@ -36,6 +36,11 @@ object TestDependencies {
     const val junit = "junit:junit:${Versions.junit}"
     const val junitExt = "androidx.test.ext:junit:${Versions.junitExt}"
     const val espresso = "androidx.test.espresso:espresso-core:${Versions.espresso}"
+    const val coreTesting = "androidx.arch.core:core-testing:${Versions.coreTesting}"
+
+    const val mockk = "io.mockk:mockk:${Versions.mockk}"
+    const val mockkAgentJvm = "io.mockk:mockk-agent-jvm:${Versions.mockk}"
+    const val mockkAndroid = "io.mockk:mockk-android:${Versions.mockk}"
 }
 
 private object Versions {
@@ -52,6 +57,8 @@ private object Versions {
     const val junit = "4.13.2"
     const val junitExt = "1.1.3"
     const val espresso = "3.4.0"
+    const val coreTesting = "2.1.0"
+    const val mockk = "1.12.4"
 
     // Debugging dependencies
     const val timber = "5.0.1"

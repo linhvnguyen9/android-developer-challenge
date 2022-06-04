@@ -11,6 +11,10 @@ dependencies {
     implementation Dependencies.gson
 
     testImplementation TestDependencies.junit
+    testImplementation TestDependencies.coreTesting
+    testImplementation TestDependencies.mockk
+    testImplementation TestDependencies.mockkAgentJvm
+    androidTestImplementation TestDependencies.mockkAndroid
     androidTestImplementation TestDependencies.junit
     androidTestImplementation TestDependencies.junitExt
 

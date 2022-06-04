@@ -6,6 +6,7 @@ import com.linh.androiddeveloperchallenge.ratesvolume.R
 import com.linh.androiddeveloperchallenge.ratesvolume.domain.entity.*
 import com.linh.androiddeveloperchallenge.ratesvolume.presentation.model.TimesheetUi
 import com.linh.androiddeveloperchallenge.ratesvolume.presentation.model.TimesheetUiState
+import com.linh.androiddeveloperchallenge.ratesvolume.presentation.utils.getFullName
 import javax.inject.Inject
 
 class TimesheetUiMapper @Inject constructor(private val resourceProvider: ResourceProvider) :
@@ -36,7 +37,7 @@ class TimesheetUiMapper @Inject constructor(private val resourceProvider: Resour
         TimesheetUi.SuccessUi.JobUi.AssignmentUi(
             id = assignment.id,
             staffUi = assignment.getStaffUi(),
-            orchardName = "${assignment.orchard.name} (${assignment.orchard.id})",
+            orchardName = assignment.getOrchardName(),
             blockName = assignment.block,
             selectedRateType = assignment.rateType,
             pieceRate = assignment.pieceRate.toString(),
@@ -46,16 +47,18 @@ class TimesheetUiMapper @Inject constructor(private val resourceProvider: Resour
     }
 
     private fun Assignment.getStaffUi() = TimesheetUi.SuccessUi.JobUi.AssignmentUi.StaffUi(
-        "${staff.firstName} ${staff.lastName}",
-        R.drawable.background_avatar
+        fullName = staff.getFullName(),
+        avatarBackgroundRes = R.drawable.background_avatar
     )
+    
+    private fun Assignment.getOrchardName() = "${orchard.name} (${orchard.id})"
 
     private fun List<AssignmentRow>.getRowSelectorUi() = map { assignmentRow ->
         TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowSelectorUi(
             id = assignmentRow.row.row.id,
             num = assignmentRow.row.row.num.toString(),
             state = if (assignmentRow.assigned) {
-                if (assignmentRow.row.completedCount != 0) {
+                if (assignmentRow.row.completedCount != null && assignmentRow.row.completedCount != 0) {
                     TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowSelectorState.SELECTED_WORKED
                 } else {
                     TimesheetUi.SuccessUi.JobUi.AssignmentUi.RowSelectorState.SELECTED
@@ -76,7 +79,7 @@ class TimesheetUiMapper @Inject constructor(private val resourceProvider: Resour
                 ),
                 maxCount = assignmentRow.row.row.treeCount,
                 assignedCount = assignmentRow.assignedTreesCount,
-                previousWorkerName = "${assignmentRow.row.lastWorker.firstName} ${assignmentRow.row.lastWorker.lastName}",
+                previousWorkerName = assignmentRow.row.lastWorker?.getFullName().orEmpty(),
                 workedCount = assignmentRow.row.completedCount ?: 0
             )
         }

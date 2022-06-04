@@ -32,9 +32,23 @@ data class TimesheetUi(
 
                 data class StaffUi(
                     val fullName: String,
-                    @DrawableRes val avatarBackgroundRes: Int
+                    @DrawableRes val avatarBackgroundRes: Int = R.drawable.background_avatar
                 ) {
-                    val initials get() = fullName.split(" ").joinToString(separator = "") { it.first().toString() }
+                    val initials: String
+                        get() {
+                            val nameElements: List<String> = fullName
+                                .replace("\\s+".toRegex(), " ")
+                                .trim()
+                                .split(" ")
+
+                            return if (nameElements.size == 1) {
+                                fullName.first().toString()
+                            } else {
+                                nameElements.joinToString(separator = "") {
+                                    it.first().toString()
+                                }
+                            }
+                        }
                 }
 
                 data class RowSelectorUi(
@@ -45,16 +59,10 @@ data class TimesheetUi(
                     val isSelected get() = state == RowSelectorState.SELECTED || state == RowSelectorState.SELECTED_WORKED
 
                     val backgroundRes
-                        get() = when (state) {
-                            RowSelectorState.UNSELECTED -> R.drawable.background_row_unselected
-                            RowSelectorState.SELECTED, RowSelectorState.SELECTED_WORKED -> R.drawable.background_row_selected
-                        }
+                        get() = if (isSelected) R.drawable.background_row_selected else R.drawable.background_row_unselected
 
                     val textColorRes
-                        get() = when (state) {
-                            RowSelectorState.UNSELECTED -> android.R.color.black
-                            RowSelectorState.SELECTED, RowSelectorState.SELECTED_WORKED -> android.R.color.white
-                        }
+                        get() = if (isSelected) android.R.color.white else android.R.color.black
 
                     val shouldShowIndicator get() = state == RowSelectorState.SELECTED_WORKED
                 }
